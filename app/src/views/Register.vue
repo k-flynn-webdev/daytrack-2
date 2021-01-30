@@ -96,8 +96,7 @@ export default {
       this.loading = true
       return HttpService.post(REGISTER.API.POST, {
         email: this.form.email,
-        password1: this.password,
-        password2: this.password
+        password: this.form.password,
       })
       .then(data => {
         // this.resetForm()
