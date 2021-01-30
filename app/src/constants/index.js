@@ -13,7 +13,8 @@ export const VARS = {
       { name: 'updated', value: 'updated_at' },
       { name: 'done', value: 'done_at' },
     ]
-  }
+  },
+  userLocal: 'user-local'
 }
 
 export const CSRF = {

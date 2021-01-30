@@ -3,43 +3,43 @@
     <form class="box"
           @submit.prevent="submit">
       <div class="field">
-        <label for="id-login-email" class="label">
+        <label for="id-email" class="label">
           Email
         </label>
         <div class="control has-icons-left">
-          <input id="id-login-email"
+          <input id="id-email"
+                 v-model="form.email"
                  class="input"
                  type="email"
                  placeholder="e.g. bobsmith@gmail.com"
-                 required
-                 v-model="form.email">
+                 required>
           <span class="icon is-small is-left">
           <i class="fa fa-envelope"></i>
         </span>
         </div>
       </div>
       <div class="field">
-        <label for="id-login-password" class="label">
+        <label for="id-password" class="label">
           Password
         </label>
         <div class="control has-icons-left">
-          <input id="id-login-password"
+          <input id="id-password"
+                 v-model="form.password"
                  type="password"
                  placeholder="*******"
                  class="input"
-                 required
-                 v-model="form.password">
+                 required>
           <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
         </span>
         </div>
       </div>
-      <div class="field">
-        <label for="" class="checkbox">
-          <input type="checkbox">
-          Remember me
-        </label>
-      </div>
+      <!--      <div class="field">-->
+      <!--        <label for="id-remember" class="checkbox">-->
+      <!--          <input id="id-remember" type="checkbox">-->
+      <!--          Remember me-->
+      <!--        </label>-->
+      <!--      </div>-->
       <div class="field">
         <button class="button is-success">
           Login
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import {CSRF, LOGIN} from '@/constants'
+import { CSRF, LOGIN } from '@/constants'
 import HttpService from '@/services/HttpService'
 
 export default {
@@ -73,7 +73,7 @@ export default {
 
   created () {
     return this.getToken()
-    .then(() => this.resetForm())
+        .then(() => this.resetForm())
   },
 
   methods: {
@@ -81,7 +81,7 @@ export default {
     getToken () {
       return HttpService.get(CSRF.API.GET)
     },
-    /** Reset Login details */
+    /** Reset Register details */
     resetForm () {
       this.form.email = 'flynny85@gmail.com'
       this.form.password = 'password'
@@ -96,13 +96,17 @@ export default {
       if (!LOGIN.isValid(this.form)) return
 
       this.loading = true
-      return HttpService.post(LOGIN.API.POST, this.form)
+
+      return this.$store.dispatch('user/login', {
+        email: this.form.email,
+        password: this.form.password
+      })
       .then(data => {
-        // this.resetForm()
-        // this.$router.push({ name: 'home' })
+        this.resetForm()
+        this.$router.push({ name: 'home' })
       })
       .catch(err => {
-
+        // todo: display detail/message
       })
       .finally(() => this.loading = false)
     }

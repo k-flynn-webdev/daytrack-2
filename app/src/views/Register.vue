@@ -3,41 +3,43 @@
     <form class="box"
           @submit.prevent="submit">
       <div class="field">
-        <label for="" class="label">
+        <label for="id-email" class="label">
           Email
         </label>
         <div class="control has-icons-left">
-          <input class="input"
+          <input id="id-email"
+                 v-model="form.email"
+                 class="input"
                  type="email"
                  placeholder="e.g. bobsmith@gmail.com"
-                 required
-                 v-model="form.email">
+                 required>
           <span class="icon is-small is-left">
           <i class="fa fa-envelope"></i>
         </span>
         </div>
       </div>
       <div class="field">
-        <label for="" class="label">
+        <label for="id-password" class="label">
           Password
         </label>
         <div class="control has-icons-left">
-          <input type="password"
+          <input id="id-password"
+                 v-model="form.password"
+                 type="password"
                  placeholder="*******"
                  class="input"
-                 required
-                 v-model="form.password">
+                 required>
           <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
         </span>
         </div>
       </div>
-      <div class="field">
-        <label for="" class="checkbox">
-          <input type="checkbox">
-          Remember me
-        </label>
-      </div>
+      <!--      <div class="field">-->
+      <!--        <label for="id-remember" class="checkbox">-->
+      <!--          <input id="id-remember" type="checkbox">-->
+      <!--          Remember me-->
+      <!--        </label>-->
+      <!--      </div>-->
       <div class="field">
         <button class="button is-success">
           Register
@@ -79,7 +81,7 @@ export default {
     getToken () {
       return HttpService.get(CSRF.API.GET)
     },
-    /** Reset Login details */
+    /** Reset Register details */
     resetForm () {
       this.form.email = 'flynny85@gmail.com'
       this.form.password = 'password'
@@ -94,16 +96,17 @@ export default {
       if (!REGISTER.isValid(this.form)) return
 
       this.loading = true
-      return HttpService.post(REGISTER.API.POST, {
+
+      return this.$store.dispatch('user/register', {
         email: this.form.email,
-        password: this.form.password,
+        password: this.form.password
       })
       .then(data => {
-        // this.resetForm()
-        // this.$router.push({ name: 'home' })
+        this.resetForm()
+        this.$router.push({ name: 'home' })
       })
       .catch(err => {
-
+        // todo: display detail/message
       })
       .finally(() => this.loading = false)
     }
