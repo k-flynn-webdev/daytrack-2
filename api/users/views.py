@@ -1,18 +1,15 @@
 import json
 
 from django.contrib.auth.password_validation import validate_password
+from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
 from django.views.decorators.http import require_POST
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from django.http import JsonResponse
-from rest_framework import status
 
-User = get_user_model()
+
 from users.serializers import UserSerializer
+User = get_user_model()
 
 
 @require_POST
@@ -23,6 +20,15 @@ def register_view(request):
 
     if email is None or password is None:
         return JsonResponse({'detail': 'Please provide email and password.'}, status=400)
+
+    userEmailFound = User.objects.filter(email=email)
+    if userEmailFound.count() > 0:
+        return JsonResponse({'detail': 'Email is invalid'}, status=400)
+
+    try:
+        validate_email(email)
+    except ValidationError as error:
+        return JsonResponse({'detail': error.messages}, status=400)
 
     try:
         validate_password(password)
