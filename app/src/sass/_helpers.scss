@@ -1,0 +1,59 @@
+@each $point in $array {
+  .z-index-#{$point} {
+    z-index: $point;
+  }
+
+  .p-#{$point} {
+    padding: $point * $unit;
+  }
+  .pl-#{$point} {
+    padding-left: $point * $unit;
+  }
+  .pr-#{$point} {
+    padding-right: $point * $unit;
+  }
+  .pt-#{$point} {
+    padding-top: $point * $unit;
+  }
+  .pb-#{$point} {
+    padding-bottom: $point * $unit;
+  }
+  .px-#{$point} {
+    padding-left: $point * $unit;
+    padding-right: $point * $unit;
+  }
+  .py-#{$point} {
+    padding-top: $point * $unit;
+    padding-bottom: $point * $unit;
+  }
+
+  .m-#{$point} {
+    margin: $point * $unit;
+  }
+  .ml-#{$point} {
+    margin-left: $point * $unit;
+  }
+  .mr-#{$point} {
+    margin-right: $point * $unit;
+  }
+  .mt-#{$point} {
+    margin-top: $point * $unit;
+  }
+  .mb-#{$point} {
+    margin-bottom: $point * $unit;
+  }
+  .mx-#{$point} {
+    margin-left: $point * $unit;
+    margin-right: $point * $unit;
+  }
+  .my-#{$point} {
+    margin-top: $point * $unit;
+    margin-bottom: $point * $unit;
+  }
+}
+
+@each $color, $value in $colors {
+  .is-border-#{$color} {
+    border: $unit / 10 solid nth($value, 1);
+  }
+}
