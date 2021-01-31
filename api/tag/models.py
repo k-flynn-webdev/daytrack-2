@@ -7,8 +7,6 @@ User = user_model()
 class Track(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tracks', related_query_name='track')
     value = models.CharField(max_length=255, blank=True, default='')
-    tags = models.CharField(max_length=255, blank=True, default='')
-    updated_at = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
