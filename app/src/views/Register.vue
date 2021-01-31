@@ -42,7 +42,7 @@
       <!--      </div>-->
       <div class="field">
         <button class="button is-success">
-          Register
+          {{ loading ? '...' : 'Register' }}
         </button>
       </div>
 

@@ -19,7 +19,8 @@
         </div>
       </div>
       <div class="field">
-        <label for="id-password" class="label">
+        <label for="id-password"
+               class="label">
           Password
         </label>
         <div class="control has-icons-left">
@@ -42,7 +43,7 @@
       <!--      </div>-->
       <div class="field">
         <button class="button is-success">
-          Login
+          {{ loading ? '...' : 'Login' }}
         </button>
       </div>
 
@@ -101,7 +102,7 @@ export default {
         email: this.form.email,
         password: this.form.password
       })
-      .then(data => {
+      .then(() => {
         this.resetForm()
         this.$router.push({ name: 'home' })
       })
