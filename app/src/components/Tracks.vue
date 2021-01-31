@@ -5,6 +5,9 @@
            class="track">
         {{ item }}
       </div>
+      <div v-if="tracks.length < 1">
+        No Tracks
+      </div>
     </div>
 </template>
 

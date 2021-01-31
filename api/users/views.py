@@ -1,5 +1,3 @@
-import json
-
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.password_validation import validate_password
@@ -9,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from rest_framework.views import APIView
+import json
 
 
 from users.serializers import UserSerializer

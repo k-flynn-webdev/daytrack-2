@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'rest_auth',
 #     'rest_auth.registration',
     'api.apps.ApiConfig',
-    'users'
+    'users',
+    'track',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,7 @@ USE_TZ = True
 # SECURITY
 CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
 CSRF_COOKIE_SAMESITE = 'Strict'
-CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_HTTPONLY = False        # todo: this breaks the vue spa in develop when true
 SESSION_COOKIE_SAMESITE = 'Strict'
 SESSION_COOKIE_HTTPONLY = True
 
