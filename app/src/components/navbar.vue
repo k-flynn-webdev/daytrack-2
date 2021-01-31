@@ -1,6 +1,8 @@
 <template>
     <div class="column">
-      Left side
+      <router-link :to="{ name: 'home' }">
+        Track
+      </router-link>
     </div>
 </template>
 

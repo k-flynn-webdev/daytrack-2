@@ -154,10 +154,9 @@ const actions = {
    * Remove User via API
    *
    * @param context
-   * @param {object} input    object of changes
    * @return {Promise}
    */
-  remove: function (context, input) {
+  remove: function (context) {
     return HTTP.remove(`${USER.API.DELETE}/${context.state.user.id}`)
   }
 }
