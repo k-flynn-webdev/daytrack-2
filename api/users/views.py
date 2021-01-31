@@ -39,7 +39,6 @@ def register_view(request):
 
     user = User.objects.create_user(email=email, password=password)
     user.save()
-#     user = authenticate(email=email, password=password)
 
     if user is None:
         return JsonResponse({'detail': 'Invalid credentials.'}, status=400)
@@ -49,7 +48,7 @@ def register_view(request):
 
     return JsonResponse({
         'detail': 'Successfully logged in.',
-        'user': userDetails.data
+        'data': userDetails.data
     })
 
 
@@ -71,7 +70,7 @@ def login_view(request):
     userDetails = UserSerializer(user)
     return JsonResponse({
         'detail': 'Successfully logged in.',
-        'user': userDetails.data
+        'data': userDetails.data
     })
 
 def logout_view(request):
@@ -97,4 +96,4 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return JsonResponse({'username': request.user.username})
+        return JsonResponse({'username': request.user})

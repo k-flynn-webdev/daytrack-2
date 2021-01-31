@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from tag import models.Tag as Tag
+from . import models
 
 
 class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Tag
+        model = models.Tag
         fields = ['id', 'user', 'value', 'created_at']

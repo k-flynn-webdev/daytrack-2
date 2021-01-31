@@ -6,5 +6,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.get_csrf, name='api-csrf'),
+    path('', views.tracks, name='tracks'),
 ]
