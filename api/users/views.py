@@ -1,11 +1,14 @@
 import json
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.password_validation import validate_password
+from rest_framework.permissions import IsAuthenticated
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from rest_framework.views import APIView
 
 
 from users.serializers import UserSerializer
@@ -49,3 +52,50 @@ def register_view(request):
         'detail': 'Successfully logged in.',
         'user': userDetails.data
     })
+
+
+@require_POST
+def login_view(request):
+    data = json.loads(request.body)
+    email = data.get('email')
+    password = data.get('password')
+
+    if email is None or password is None:
+        return JsonResponse({'detail': 'Please provide email and password.'}, status=400)
+
+    user = authenticate(email=email, password=password)
+
+    if user is None:
+        return JsonResponse({'detail': 'Invalid credentials.'}, status=400)
+
+    login(request, user)
+    userDetails = UserSerializer(user)
+    return JsonResponse({
+        'detail': 'Successfully logged in.',
+        'user': userDetails.data
+    })
+
+def logout_view(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'detail': 'You\'re not logged in.'}, status=400)
+
+    logout(request)
+    return JsonResponse({'detail': 'Successfully logged out.'})
+
+
+class SessionView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get(request, format=None):
+        return JsonResponse({'isAuthenticated': True})
+
+
+class WhoAmIView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get(request, format=None):
+        return JsonResponse({'username': request.user.username})
