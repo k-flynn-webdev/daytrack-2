@@ -3,8 +3,10 @@
        class="p-1">
 
     <div class="columns is-centered">
-      <navbar />
-      <logout />
+      <div class="column is-11 columns is-mobile">
+        <navbar />
+        <logout />
+      </div>
     </div>
 
     <div class="columns is-centered">

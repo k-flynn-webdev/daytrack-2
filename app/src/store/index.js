@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './user.js'
-// import tasks from './tasks.js'
+import tracks from './tracks.js'
 // import plans from './plans.js'
 // import projects from './projects.js'
 // import { APP_VARS } from '../constants';
@@ -113,7 +113,7 @@ export default new Vuex.Store({
   mutations: mutations,
   modules: {
     user,
-    // tasks,
+    tracks,
     // plans,
     // projects
   }

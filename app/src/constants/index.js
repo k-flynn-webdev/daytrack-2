@@ -120,21 +120,32 @@ export const USER = {
 // }
 
 export const TRACK = {
-  text: 'track',
   value: 'track',
   store: 'track',
   route: {
-    name: 'track',
-    path: '/track',
+    name: 'home',
+    path: '/home',
   },
   API: {
-    GET: '/api/track/',
     POST: '/api/track/',
     PATCH: '/api/track/',
     DELETE: '/api/track/',
-    TOKEN: '/api/track/token',
   },
-  isValid: (input) => { return input && input.length > 3 }
+  isValid: (input) => { return input &&
+      input.track &&
+      input.track.length >= 4 }
+}
+
+export const TRACKS = {
+  value: 'track',
+  store: 'track',
+  route: {
+    name: 'home',
+    path: '/home',
+  },
+  API: {
+    GET: '/api/tracks/',
+  },
 }
 
 //
@@ -194,6 +205,7 @@ export const TRACK = {
 // }
 
 export const ALL = {
+  VARS,
   CSRF,
   USER,
   LOGIN,
@@ -203,7 +215,7 @@ export const ALL = {
   // RECOVER,
   // ADMIN,
   TRACK,
-  VARS
+  TRACKS,
   // PLAN,
   // TASK,
   // HOME,
