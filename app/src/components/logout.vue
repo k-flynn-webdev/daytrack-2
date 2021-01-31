@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { CSRF } from '@/constants'
+import { CSRF, USER } from '@/constants'
 import HttpService from '@/services/HttpService'
 
 export default {
@@ -35,10 +35,10 @@ export default {
 
   computed: {
     userName () {
-      return this.$store.state.user.user.name
+      return this.$store.state[USER.store].user.name
     },
     isLoggedIn () {
-      return this.$store.state.user.isLoggedIn
+      return this.$store.state[USER.store].isLoggedIn
     }
   },
 

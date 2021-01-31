@@ -1,5 +1,6 @@
 <template>
-  <form @submit.prevent="submit">
+  <form class="track"
+        @submit.prevent="submit">
     <div class="field">
       <div class="control">
         <input id="id-track"
@@ -67,7 +68,6 @@ export default {
       if (!TRACK.isValid(this.form)) return
 
       this.loading = true
-      console.log('inside')
 
       return this.$store.dispatch('tracks/post', {
         track: this.form.track,

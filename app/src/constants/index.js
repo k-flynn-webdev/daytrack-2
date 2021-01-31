@@ -121,7 +121,7 @@ export const USER = {
 
 export const TRACK = {
   value: 'track',
-  store: 'track',
+  store: 'tracks',
   route: {
     name: 'home',
     path: '/home',
@@ -138,13 +138,13 @@ export const TRACK = {
 
 export const TRACKS = {
   value: 'track',
-  store: 'track',
+  store: 'tracks',
   route: {
     name: 'home',
     path: '/home',
   },
   API: {
-    GET: '/api/tracks/',
+    GET: '/api/track/',
   },
 }
 
