@@ -9,6 +9,8 @@ from users import urls as userUrls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('api/track/', include('track.urls')),
+    path('api/tag/', include('tag.urls')),
 #     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/', include(userUrls)),
 ]

@@ -1,11 +1,9 @@
 from rest_framework import serializers
+from tag import models.Tag as Tag
 
-from track import models
 
-
-class UserSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name']
-        extra_kwargs = {'password': {'write_only': True}}
+        model = Tag
+        fields = ['id', 'user', 'value', 'created_at']

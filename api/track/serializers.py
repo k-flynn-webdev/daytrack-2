@@ -1,11 +1,9 @@
 from rest_framework import serializers
+from track import models.Track as Track
 
-from track import models
 
-
-class UserSerializer(serializers.ModelSerializer):
+class TrackSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name']
-        extra_kwargs = {'password': {'write_only': True}}
+        model = Track
+        fields = ['id', 'user', 'value', 'tags', 'updated_at', 'created_at']
