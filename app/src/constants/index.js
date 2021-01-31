@@ -132,8 +132,8 @@ export const TRACK = {
     DELETE: '/api/track/',
   },
   isValid: (input) => { return input &&
-      input.track &&
-      input.track.length >= 4 }
+      input.value &&
+      input.value.length >= 4 }
 }
 
 export const TRACKS = {

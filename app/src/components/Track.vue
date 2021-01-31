@@ -4,7 +4,7 @@
     <div class="field">
       <div class="control">
         <input id="id-track"
-               v-model="form.track"
+               v-model="form.value"
                class="input"
                type="text"
                placeholder="..What happened?"
@@ -37,7 +37,7 @@ export default {
     return {
       loading: false,
       form: {
-        track: '',
+        value: '',
         tags: '',
       }
     }
@@ -55,7 +55,7 @@ export default {
     },
     /** Reset Register details */
     resetForm () {
-      this.form.track = ''
+      this.form.value = ''
       this.form.tags = ''
     },
     /**
@@ -70,7 +70,7 @@ export default {
       this.loading = true
 
       return this.$store.dispatch('tracks/post', {
-        track: this.form.track,
+        value: this.form.value,
         tags: this.form.tags
       })
       .then(() => {

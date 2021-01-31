@@ -1,10 +1,19 @@
 <template>
     <div class="tracks">
+
       <div v-for="item in tracks"
            :key="item.id"
            class="track">
-        {{ item }}
+        {{ item.value }}
+        <div>
+          <span v-for="tag in item.tags"
+                :key="tag.id"
+                class="tag">
+            {{ tag.value }}
+          </span>
+        </div>
       </div>
+
       <div v-if="tracks.length < 1">
         No Tracks
       </div>

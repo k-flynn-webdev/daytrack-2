@@ -11,8 +11,10 @@ import HTTP from '@/services/HttpService'
  */
 const defaultTrackObj = () => {
   return {
-    track: '',
-    tags: '',
+    id: -1,
+    user: -1,
+    value: '',
+    tags: [],
     created_at: '',
     updated_at: '',
   }
@@ -124,7 +126,7 @@ const actions = {
     })
   },
   /**
-   * Get all Track objects via API as a list
+   * Get all Track objects via API as a List
    *
    * @param {object}      context
    * @param {Pagination}  input   pagination details
@@ -160,11 +162,20 @@ export default {
 }
 
 /**
+ * @typedef {object}    Tag
+ *
+ * @property {number}   id
+ * @property {number}   user
+ * @property {string}   value
+ * @property {date}     created_at
+ */
+
+/**
  * @typedef {object}    Track
  *
  * @property {number}   id
  * @property {string}   track
- * @property {string}   tags
+ * @property {Tag[]}    tags
  * @property {date}     created_at
  * @property {date}     updated_at
  */

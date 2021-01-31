@@ -42,8 +42,8 @@ const mutations = {
    * Set local state to be logged in and
    *  update state.user details
    *
-   * @param state
-   * @param {object} input
+   * @param {object}  state
+   * @param {object}  input
    */
   login: function (state, input) {
     state.isLoggedIn = true
@@ -53,7 +53,7 @@ const mutations = {
    * Set local state to be logged out
    *  and remove state.user details
    *
-   * @param state
+   * @param {object}  state
    */
   logout: function (state) {
     state.isLoggedIn = false
@@ -62,8 +62,8 @@ const mutations = {
   /**
    * Sets the User state
    *
-   * @param state
-   * @param {object} input
+   * @param {object}  state
+   * @param {User}    input
    */
   set: function (state, input) {
     if (!input) {
@@ -88,8 +88,8 @@ const actions = {
   /**
    * Register User via API
    *
-   * @param context
-   * @param {Login}    input   login details
+   * @param {object}  context
+   * @param {Login}   input   login details
    * @return {Promise}
    */
   register: function (context, input) {
@@ -102,8 +102,8 @@ const actions = {
   /**
    * Login User via API
    *
-   * @param context
-   * @param {Login}    input   login details
+   * @param {object}  context
+   * @param {Login}   input   login details
    * @return {Promise}
    */
   login: function (context, input) {
@@ -116,7 +116,7 @@ const actions = {
   /**
    * Logout User via API
    *
-   * @param context
+   * @param {object}  context
    * @return {Promise}
    */
   logout: function (context) {
@@ -128,7 +128,7 @@ const actions = {
   /**
    * Get User details via API
    *
-   * @param context
+   * @param {object}  context
    * @return {Promise}
    */
   get: function (context) {
@@ -141,8 +141,8 @@ const actions = {
   /**
    * Patch User details via API
    *
-   * @param context
-   * @param {object} input    object of changes
+   * @param {object}  context
+   * @param {object}  input    object of changes
    * @return {Promise}
    */
   patch: function (context, input) {
@@ -154,7 +154,7 @@ const actions = {
   /**
    * Remove User via API
    *
-   * @param context
+   * @param {object}  context
    * @return {Promise}
    */
   remove: function (context) {
@@ -170,6 +170,13 @@ export default {
 }
 
 /**
+ * @typedef {object}    Login
+ *
+ * @property {string}   email
+ * @property {string}   password    - only on creation
+ */
+
+/**
  * @typedef {object}    User
  *
  * @property {number}   id
@@ -178,5 +185,7 @@ export default {
  * @property {string}   name
  * @property {string}   first_name
  * @property {string}   last_name
+ * @property {date}     updated_at
+ * @property {date}     created_at
  */
 
