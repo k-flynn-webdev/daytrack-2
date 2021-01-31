@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'users',
     'track',
+    'tag',
 ]
 
 MIDDLEWARE = [
