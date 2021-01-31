@@ -1,10 +1,13 @@
 <template>
   <div class="column is-narrow">
-    <button v-if="isLoggedIn"
-            class="button is-success"
-            @click="submit">
-      {{ loading ? '...' : 'Logout' }}
-    </button>
+    <div v-if="isLoggedIn">
+      <span class="mr-2">{{ userName }}</span>
+      <button class="button is-success"
+              @click="submit">
+        {{ loading ? '...' : 'Logout' }}
+      </button>
+    </div>
+
     <router-link v-else
                  :to="{ name: 'login' }">
       Login
@@ -31,6 +34,9 @@ export default {
   },
 
   computed: {
+    userName () {
+      return this.$store.state.user.user.name
+    },
     isLoggedIn () {
       return this.$store.state.user.isLoggedIn
     }

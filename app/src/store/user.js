@@ -15,6 +15,7 @@ const defaultUserObj = () => {
   return {
     id: -1,
     email: null,
+    name: '',
     first_name: null,
     last_name: null,
   }
@@ -174,14 +175,8 @@ export default {
  * @property {number}   id
  * @property {string}   email
  * @property {string}   password    - only on creation
+ * @property {string}   name
  * @property {string}   first_name
  * @property {string}   last_name
  */
 
-/**
- * @typedef {object}    Login
- *
- * @property {string}   strategy
- * @property {string}   email
- * @property {string}   password
- */
