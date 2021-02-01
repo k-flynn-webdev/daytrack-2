@@ -4,12 +4,12 @@
       <div v-for="item in tracks"
            :key="item.id"
            class="track">
-        {{ item.value }}
-        <div>
+        <span>{{ item.value }}</span>
+        <div class="tags">
           <span v-for="tag in item.tags"
                 :key="tag.id"
                 class="tag">
-            {{ tag.value }}
+            <span>{{ tag.value }}</span>
           </span>
         </div>
       </div>

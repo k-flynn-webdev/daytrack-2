@@ -92,8 +92,8 @@ const actions = {
   post: function (context, input) {
     return HTTP.post(TRACK.API.POST, input)
     .then(({ data }) => {
-      context.commit('post', data.track)
-      return data.track
+      context.commit('post', data.data)
+      return data.data
     })
   },
   /**
@@ -107,8 +107,8 @@ const actions = {
   patch: function (context, input) {
     return HTTP.patch(`${TRACK.API.PATCH}/${input.id}`, input)
     .then(({ data }) => {
-      context.commit('patch', data.track)
-      return data.track
+      context.commit('patch', data.data)
+      return data.data
     })
   },
   /**
@@ -135,8 +135,8 @@ const actions = {
   get: function (context, input) {
     return HTTP.get(TRACKS.API.GET, input)
     .then(({ data }) => {
-      context.commit('set', data.tracks)
-      return data.user
+      context.commit('set', data.data)
+      return data.data
     })
   },
   /**
@@ -149,7 +149,7 @@ const actions = {
   getById: function (context, input) {
     return HTTP.get(`${TRACK.API.GET}/${input.id}`)
     .then(({ data }) => {
-      return data.track
+      return data.data
     })
   },
 }

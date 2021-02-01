@@ -49,7 +49,7 @@ export const REGISTER = {
   value: 'login',
   route: { name: 'login', path: '/login' },
   API: {
-    POST: '/rest-auth/register'
+    POST: '/rest-auth/register/'
   },
   isValid: (input) => {
     return (input &&
