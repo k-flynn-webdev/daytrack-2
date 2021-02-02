@@ -4,6 +4,7 @@ from django.db import models
 
 User = user_model()
 
+
 # Create your models here.
 class Tag(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='tags', related_query_name='tag')
