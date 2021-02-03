@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.http import JsonResponse, HttpResponse
 from rest_framework.decorators import api_view
+from rest_framework import serializers as testSerializers
+import json
 
 from . import models
 from . import serializers
@@ -34,8 +36,8 @@ def tracks(request):
             track = models.Track.objects.create(user=request.user, value=value)
             track.tags.set(tags)
             track.save()
-        except ValidationError:
-            return JsonResponse({'detail': 'Track could not be saved'}, status=400)
+        except testSerializers.ValidationError as e:
+            return JsonResponse({'detail': e.detail }, status=400)
 
         track_details = serializers.TrackSerializer(track)
 

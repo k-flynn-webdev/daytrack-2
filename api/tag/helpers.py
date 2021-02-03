@@ -1,4 +1,6 @@
 from .models import Tag
+from .validate import validate
+from rest_framework import serializers
 
 
 """ Returns tags from a input list
@@ -39,7 +41,8 @@ def tags_from_input(raw: list, user: object):
             if type(d) is str:
                 try:
                     obj = Tag.objects.get(value=d)
-                except:
+                except Tag.DoesNotExist:
+                    validate({ 'value': d, 'user': user })
                     obj = Tag.objects.create(value=d, user=user)
                     obj.save()
 
