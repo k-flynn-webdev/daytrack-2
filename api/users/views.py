@@ -48,7 +48,7 @@ def register_view(request):
 
     return JsonResponse({
         'detail': 'Successfully logged in.',
-        'data': userDetails.data
+        'results': userDetails.data
     })
 
 
@@ -70,7 +70,7 @@ def login_view(request):
     userDetails = UserSerializer(user)
     return JsonResponse({
         'detail': 'Successfully logged in.',
-        'data': userDetails.data
+        'results': userDetails.data
     })
 
 def logout_view(request):

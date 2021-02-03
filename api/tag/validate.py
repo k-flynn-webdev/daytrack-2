@@ -1,16 +1,21 @@
 from rest_framework import serializers
-from django import forms
+
+min_tag_length = 3
+
+""" validate Tag data """
+
 
 def validate(data):
-    print(data)
-
     user = data['user']
     value = data['value']
 
     if user.id is None:
         raise serializers.ValidationError('Tag missing User')
 
-    if len(value) < 10:
-        raise serializers.ValidationError('Tag Value too short, must be chars long(5)')
+    if type(value) is not str:
+        raise serializers.ValidationError('Tag Value is not a string')
+
+    if len(value) < min_tag_length:
+        raise serializers.ValidationError(f'Tag Value too short, must  be ({min_tag_length}) long')
 
     return data

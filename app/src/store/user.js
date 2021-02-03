@@ -95,8 +95,8 @@ const actions = {
   register: function (context, input) {
     return HTTP.post(REGISTER.API.POST, input)
         .then(({ data }) => {
-          context.commit('login', data.data)
-          return data.data
+          context.commit('login', data.results)
+          return data.results
         })
   },
   /**
@@ -109,8 +109,8 @@ const actions = {
   login: function (context, input) {
     return HTTP.post(LOGIN.API.POST, input)
     .then(({ data }) => {
-      context.commit('login', data.data)
-      return data.data
+      context.commit('login', data.results)
+      return data.results
     })
   },
   /**
@@ -134,8 +134,8 @@ const actions = {
   get: function (context) {
     return HTTP.get(USER.API.GET)
     .then(({ data }) => {
-      context.commit('set', data.data)
-      return data.data
+      context.commit('set', data.results)
+      return data.results
     })
   },
   /**
@@ -148,7 +148,7 @@ const actions = {
   patch: function (context, input) {
     return HTTP.patch(`${USER.API.PATCH}/${input.id}`, input)
     .then(({ data }) => {
-      context.commit('set', data.data)
+      context.commit('set', data.results)
     })
   },
   /**
