@@ -1,18 +1,48 @@
 from .models import Tag
 
 
-""" Returns tags from a input list 
+""" Returns tags from a input list
 
-    :param      {str[]|object[]}    A list containing [objects or strings]
+    :param      {str[]|object[]}    raw     A list containing [objects or strings]
+    :param      {object}            user    User creating the tag
     :returns    {Tags[]}
 """
 
-def tags_from_input(raw: list):
 
-    for item in raw:
-        if type(item) is str:
-            print(item)
+def tags_from_input(raw: list, user: object):
+    tags = []
 
+    # if a object
+    if type(raw) is object:
+        return [raw]
 
-    allTags = Tag.objects.get_or_create()
+    # if a string
+    if type(raw) is str:
+        raw = raw.split(' ')
 
+    # if a list
+    if type(raw) is list:
+
+        finalItems = []
+
+        # cleanup any possible string values
+        for b in raw:
+            if type(b) is str:
+                tmpStr = b.split(' ')
+                for c in tmpStr:
+                    finalItems.append(c)
+
+        for d in finalItems:
+            if type(d) is object:
+                tags.append(item)
+
+            if type(d) is str:
+                try:
+                    obj = Tag.objects.get(value=d)
+                except:
+                    obj = Tag.objects.create(value=d, user=user)
+                    obj.save()
+
+                tags.append(obj)
+
+    return tags

@@ -10,7 +10,7 @@ User = user_model()
 class Track(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tracks', related_query_name='track')
     value = models.CharField(max_length=255, blank=False, default='', validators=[MinLengthValidator(11)])
-    tags = models.ManyToManyField(Tag, db_table='track_to_tag')
+    tags = models.ManyToManyField(Tag, blank=True, db_table='track_to_tag')
     updated_at = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

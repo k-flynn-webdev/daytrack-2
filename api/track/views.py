@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from django.http import JsonResponse, HttpResponse
 from rest_framework.decorators import api_view
 
@@ -6,6 +8,7 @@ from . import serializers
 from tag.helpers import tags_from_input
 
 
+@login_required
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
 def tracks(request):
 
@@ -25,13 +28,13 @@ def tracks(request):
     if request.method == 'POST':
         data = request.data
         value = data.get('value')
-        tags = tags_from_input(data.get('tags'))
 
         try:
+            tags = tags_from_input(data.get('tags'), request.user)
             track = models.Track.objects.create(user=request.user, value=value)
+            track.tags.set(tags)
             track.save()
-        except Exception:
-            print(Exception)
+        except ValidationError:
             return JsonResponse({'detail': 'Track could not be saved'}, status=400)
 
         track_details = serializers.TrackSerializer(track)
