@@ -1,27 +1,9 @@
 <template>
-
-  <div class="column is-11">
-    Enjoy
-  </div>
-
+  <div></div>
 </template>
 
 <script>
-import { USER } from '@/constants'
-
 export default {
-  name: 'Home',
-
- computed: {
-    isLoggedIn () {
-      return this.$store.state[USER.store].isLoggedIn
-    }
- },
-
- mounted () {
-   if (this.isLoggedIn()) {
-     this.$router.push({ name: 'tracks' })
-   }
- }
+  name: 'Home'
 }
 </script>
