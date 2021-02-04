@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 // import userRoutes from './user'
 // import itemRoutes from './items'
 import Home from '../views/Home.vue'
+// import Tracks from '../views/trackList.vue'
+// import Tags from '../views/Tags.vue'
 
 // import isAdminAPI from '@/services/isAdmin';
 // import { ALL } from '../constants'
@@ -32,9 +34,14 @@ Vue.use(VueRouter)
     //   component: () => import(/* webpackChunkName: "user" */ '../views/User')
     // },
     {
-      path: '/track',
-      name: 'track',
-      component: () => import(/* webpackChunkName: "track" */ '../views/Create')
+      path: '/tracks',
+      name: 'tracks',
+      component: () => import(/* webpackChunkName: "tracks" */ '../views/Tracks')
+    },
+    {
+      path: '/tag/:tag',
+      name: 'tag',
+      component: () => import(/* webpackChunkName: "tags" */ '../views/Tag')
     },
   // {
   //   path: ALL.HOME.route.path,

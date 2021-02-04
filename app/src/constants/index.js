@@ -123,8 +123,8 @@ export const TRACK = {
   value: 'track',
   store: 'tracks',
   route: {
-    name: 'home',
-    path: '/home',
+    name: 'tracks',
+    path: '/tracks',
   },
   API: {
     POST: '/api/track/',
@@ -140,11 +140,23 @@ export const TRACKS = {
   value: 'track',
   store: 'tracks',
   route: {
-    name: 'home',
-    path: '/home',
+    name: 'tracks',
+    path: '/tracks',
   },
   API: {
     GET: '/api/track/',
+  },
+}
+
+export const TAGS = {
+  value: 'tag',
+  store: 'tag',
+  route: {
+    name: 'tag',
+    path: '/tag',
+  },
+  API: {
+    GET: '/api/tag/',
   },
 }
 

@@ -1,27 +1,32 @@
 <template>
 
   <div class="column is-11">
-    Enjoy
+    <tag-detail />
   </div>
 
 </template>
 
 <script>
+import TagDetail from "@/components/tagDetail";
 import { USER } from '@/constants'
 
 export default {
-  name: 'Home',
+  name: 'Tag',
+
+  props: {
+    tag: {
+      type: String
+    }
+  },
+
+  components: {
+    TagDetail,
+  },
 
  computed: {
     isLoggedIn () {
       return this.$store.state[USER.store].isLoggedIn
     }
- },
-
- mounted () {
-   if (this.isLoggedIn()) {
-     this.$router.push({ name: 'tracks' })
-   }
  }
 }
 </script>
