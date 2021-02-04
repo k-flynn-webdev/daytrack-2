@@ -4,7 +4,7 @@ import store from '@/store'
 const isAuthenticated = () => store.state.user.isLoggedIn
 // import userRoutes from './user'
 // import itemRoutes from './items'
-// import Home from '../views/Home.vue'
+import Home from '../views/Home.vue'
 // import Tracks from '../views/trackList.vue'
 // import Tags from '../views/Tags.vue'
 // import isAdminAPI from '@/services/isAdmin';
@@ -19,16 +19,11 @@ Vue.use(VueRouter)
       name: 'home',
       beforeEnter(to, from, next) {
         if (isAuthenticated()) {
-          next({ name: 'tracks' });
-        } else {
-          next({ name: 'landing' });
+          next({ name: 'tracks' })
         }
-      }
-    },
-    {
-      path: '/landing',
-      name: 'landing',
-      component: () => import(/* webpackChunkName: "landing" */ '../views/Landing')
+        next()
+      },
+      component: Home
     },
     {
       path: '/register',
@@ -48,12 +43,24 @@ Vue.use(VueRouter)
     {
       path: '/tracks',
       name: 'tracks',
+      beforeEnter(to, from, next) {
+        if (!isAuthenticated()) {
+          next({ name: 'home' })
+        }
+        next()
+      },
       component: () => import(/* webpackChunkName: "tracks" */ '../views/Tracks')
     },
     {
       path: '/tag/:tag',
       name: 'tag',
       props: true,
+      beforeEnter(to, from, next) {
+        if (!isAuthenticated()) {
+          next({ name: 'home' })
+        }
+        next()
+      },
       component: () => import(/* webpackChunkName: "tag" */ '../views/Tag')
     },
   // {

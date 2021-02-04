@@ -57,7 +57,7 @@ const mutations = {
    */
   logout: function (state) {
     state.isLoggedIn = false
-    mutations.set(state, null)
+    mutations.set(state)
   },
   /**
    * Sets the User state
@@ -68,6 +68,7 @@ const mutations = {
   set: function (state, input) {
     if (!input) {
       UserCookie.remove()
+      return
     }
 
     Object.entries(input).forEach(([key, value]) => {
@@ -122,7 +123,8 @@ const actions = {
   logout: function (context) {
     return HTTP.remove(LOGOUT.API.DELETE)
     .then(() => {
-      context.commit('logout')
+      context.commit('logout', null)
+      return 'blaaa'
     })
   },
   /**

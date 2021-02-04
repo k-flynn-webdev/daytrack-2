@@ -58,7 +58,9 @@ export default {
       this.loading = true
 
       return this.$store.dispatch('user/logout')
-      .then(() => this.$router.push({ name: 'home' }))
+      .then(() => {
+          this.$router.push({ name: 'home' })
+      })
       .catch(err => {
         // todo: display detail/message
       })
