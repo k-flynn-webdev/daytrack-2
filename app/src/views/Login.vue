@@ -104,9 +104,7 @@ export default {
       })
       .then(() => {
         this.resetForm()
-        this.$nextTick(() => {
-          this.$router.push({ name: TRACK.route.name })
-        })
+        this.$router.push({ name: TRACK.route.name })
       })
       .catch(err => {
         // todo: display detail/message
