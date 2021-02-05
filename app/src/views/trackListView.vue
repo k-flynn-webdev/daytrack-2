@@ -14,7 +14,7 @@ import trackList from "@/components/trackList";
 import { USER } from '@/constants'
 
 export default {
-  name: 'Tracks',
+  name: 'track-list-view',
 
   components: {
     trackCreate,

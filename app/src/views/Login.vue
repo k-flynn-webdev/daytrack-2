@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { CSRF, LOGIN } from '@/constants'
+import { CSRF, LOGIN, TRACK } from '@/constants'
 import HttpService from '@/services/HttpService'
 
 export default {
@@ -105,7 +105,7 @@ export default {
       .then(() => {
         this.resetForm()
         this.$nextTick(() => {
-          this.$router.push({ name: 'tracks' })
+          this.$router.push({ name: TRACK.route.name })
         })
       })
       .catch(err => {

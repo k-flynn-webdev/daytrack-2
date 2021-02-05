@@ -69,7 +69,7 @@ export default {
 
       this.loading = true
 
-      return this.$store.dispatch('tracks/post', {
+      return this.$store.dispatch('track/post', {
         value: this.form.value,
         tags: this.form.tags
       })

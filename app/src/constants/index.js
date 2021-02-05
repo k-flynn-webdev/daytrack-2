@@ -119,36 +119,63 @@ export const USER = {
 //   }
 // }
 
+/**
+ * @typedef {object}    Track
+ *
+ * @property {number}   id
+ * @property {number}   user
+ * @property {string}   track
+ * @property {Tag[]}    tags
+ * @property {date}     created_at
+ * @property {date}     updated_at
+ */
+
 export const TRACK = {
   value: 'track',
-  store: 'tracks',
+  store: 'track',
   route: {
-    name: 'tracks',
-    path: '/tracks',
+    name: 'track',
+    path: '/track',
   },
   API: {
+    GET: '/api/track/',
     POST: '/api/track/',
     PATCH: '/api/track/',
     DELETE: '/api/track/',
   },
+  /**
+   * Check if input is valid
+   * @returns {boolean}
+   */
   isValid: (input) => { return input &&
       input.value &&
-      input.value.length >= 4 }
+      input.value.length >= 5 },
+  /**
+   * Creates default Track
+   * @return {Track}
+   */
+  default: () => {
+    return {
+      id: -1,
+      user: -1,
+      value: '',
+      tags: [],
+      created_at: '',
+      updated_at: '',
+    }
+  }
 }
 
-export const TRACKS = {
-  value: 'track',
-  store: 'tracks',
-  route: {
-    name: 'tracks',
-    path: '/tracks',
-  },
-  API: {
-    GET: '/api/track/',
-  },
-}
+/**
+ * @typedef {object}    Tag
+ *
+ * @property {number}   id
+ * @property {number}   user
+ * @property {string}   value
+ * @property {date}     created_at
+ */
 
-export const TAGS = {
+export const TAG = {
   value: 'tag',
   store: 'tag',
   route: {
@@ -158,6 +185,25 @@ export const TAGS = {
   API: {
     GET: '/api/tag/',
   },
+  /**
+   * Check if input is valid
+   * @returns {boolean}
+   */
+  isValid: (input) => { return input &&
+      input.value &&
+      input.value.length >= 3 },
+  /**
+   * Creates default Tag
+   * @return {Tag}
+   */
+  default: () => {
+    return {
+      id: -1,
+      user: -1,
+      value: '',
+      created_at: '',
+    }
+  }
 }
 
 //
@@ -226,8 +272,9 @@ export const ALL = {
   // VERIFY,
   // RECOVER,
   // ADMIN,
+  TAG,
   TRACK,
-  TRACKS,
+  // TRACKS,
   // PLAN,
   // TASK,
   // HOME,

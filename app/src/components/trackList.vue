@@ -1,30 +1,27 @@
 <template>
-    <div class="tracks">
+    <div class="track-list">
 
-      <div v-for="item in tracks"
+      <track-item v-for="item in trackList"
            :key="item.id"
-           class="track">
-        <span>{{ item.value }}</span>
-        <div class="tags">
-          <span v-for="tag in item.tags"
-                :key="tag.id"
-                class="tag">
-            <span>{{ tag.value }}</span>
-          </span>
-        </div>
-      </div>
+           :track="item" />
 
-      <div v-if="tracks.length < 1">
+      <div v-if="trackList.length < 1">
         No Tracks
       </div>
+
     </div>
 </template>
 
 <script>
-import { TRACKS } from '@/constants'
+import { TRACK } from '@/constants'
+import trackItem from "@/components/trackItem";
 
 export default {
-  name: 'Tracks',
+  name: 'track-list',
+
+  components: {
+    trackItem
+  },
 
   data () {
     return {
@@ -33,23 +30,23 @@ export default {
   },
 
   computed: {
-    tracks () {
-      return this.$store.state[TRACKS.store].tracks
+    trackList () {
+      return this.$store.state[TRACK.store].trackList
     }
   },
 
   created () {
-    return this.getTracks()
+    return this.getTrackList()
   },
 
   methods: {
-    /** Ensure API returns tracks on init */
-    getTracks () {
+    /** Ensure API returns track list on init */
+    getTrackList () {
       if (this.loading) return
 
       this.loading = true
 
-      return this.$store.dispatch('tracks/get')
+      return this.$store.dispatch('track/get')
       .finally(() => this.loading = false)
     },
   }
