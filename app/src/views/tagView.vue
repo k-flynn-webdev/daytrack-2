@@ -31,11 +31,9 @@ export default {
     // TagDetail,
   },
 
- computed: {
-    isLoggedIn () {
-      return this.$store.state[USER.store].isLoggedIn
-    }
- },
+  mounted () {
+    return this.getTagDetail()
+  },
 
   methods: {
     getTagDetail () {
