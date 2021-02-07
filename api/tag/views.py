@@ -53,7 +53,7 @@ from django.http import JsonResponse
 from rest_framework import mixins
 from rest_framework import generics
 
-from tag.serializers import TagSerializer
+from tag.serializers import TagSerializer, TagDetailSerializer
 from tag.models import Tag
 
 
@@ -64,7 +64,7 @@ class TagDetail(
     generics.GenericAPIView):
 
     queryset = Tag.objects.all()
-    serializer_class = TagSerializer
+    serializer_class = TagDetailSerializer
     lookup_field = 'value'
     lookup_url_kwarg = 'value'
 

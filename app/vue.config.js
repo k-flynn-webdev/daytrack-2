@@ -2,15 +2,15 @@ module.exports = {
   devServer: {
     proxy: {
       '/admin': {
-        target: 'https://127.0.0.1:8400/',
+        target: 'http://127.0.0.1:8400/',
         ws: false,
       },
       '/api/': {
-        target: 'https://127.0.0.1:8400/',
+        target: 'http://127.0.0.1:8400/',
         ws: false,
       },
       '/rest-auth/': {
-        target: 'https://127.0.0.1:8400/',
+        target: 'http://127.0.0.1:8400/',
         ws: false,
       }
       // '/login': {
