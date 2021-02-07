@@ -52,6 +52,17 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "trackListView" */ '../views/trackListView')
     },
     {
+      path: '/tag',
+      name: 'tag-list',
+      beforeEnter(to, from, next) {
+        if (!isAuthenticated()) {
+          next({ name: 'home' })
+        }
+        next()
+      },
+      component: () => import(/* webpackChunkName: "tagListView" */ '../views/tagListView')
+    },
+    {
       path: '/tag/:tag',
       name: 'tag',
       props: true,

@@ -55,6 +55,7 @@ from rest_framework import generics
 
 from tag.serializers import TagSerializer, TagDetailSerializer
 from tag.models import Tag
+from track import models as TrackModel
 
 
 class TagDetail(
@@ -89,8 +90,14 @@ class TagList(
     mixins.CreateModelMixin,
     generics.GenericAPIView):
 
-    queryset = Tag.objects.all()
     serializer_class = TagSerializer
+
+    def get_queryset(self):
+        db_user_tracks = TrackModel.Track.objects.filter(
+            user=self.request.user).values_list('pk', flat=True)
+        db_user_tags = Tag.objects.filter(track__in=list(db_user_tracks)).distinct()
+        self.queryset = db_user_tags
+        return self.queryset
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)

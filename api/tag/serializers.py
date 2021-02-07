@@ -3,6 +3,7 @@ from . import models
 
 from track import models as TrackModel
 
+
 class TagSerializer(serializers.ModelSerializer):
 
     class Meta:

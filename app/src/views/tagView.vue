@@ -4,12 +4,12 @@
 
     <h2 class="title">Tag Detail</h2>
 
-    <div v-for="prop in tagProperties"
+    <ul v-for="prop in tagProperties"
          :key="prop"
          class="tag-detail">
       <label class="label is-inline-block mr-1">{{ prop }}</label>
       <span class="ml-1 detail">{{ detail[prop] }}</span>
-    </div>
+    </ul>
 
   </div>
 
@@ -43,15 +43,16 @@ export default {
     }
   },
 
-  components: {
-    // TagDetail,
-  },
-
   mounted () {
     return this.getTagDetail()
   },
 
   methods: {
+    /**
+     * Return Tag details
+     *
+     * @returns {Promise<void>}
+     */
     getTagDetail () {
       if (!this.tag) return
 

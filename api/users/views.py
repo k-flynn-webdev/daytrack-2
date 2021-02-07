@@ -73,6 +73,7 @@ def login_view(request):
         'results': userDetails.data
     })
 
+
 def logout_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({'detail': 'You\'re not logged in.'}, status=400)
@@ -94,6 +95,10 @@ class WhoAmIView(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
-    @staticmethod
-    def get(request, format=None):
-        return JsonResponse({'username': request.user})
+    def get(self, request, *args, **kwargs):
+        print(request.user)
+        userDetails = UserSerializer(request.user)
+        return JsonResponse({
+            'detail': 'Successfully found.',
+            'results': userDetails.data
+        })
