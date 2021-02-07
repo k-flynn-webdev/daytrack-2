@@ -19,7 +19,8 @@
         </div>
       </div>
       <div class="field">
-        <label for="id-password" class="label">
+        <label for="id-password"
+               class="label">
           Password
         </label>
         <div class="control has-icons-left">
@@ -42,12 +43,12 @@
       <!--      </div>-->
       <div class="field">
         <button class="button is-success">
-          {{ loading ? '...' : 'Register' }}
+          {{ loading ? '...' : 'Login' }}
         </button>
       </div>
 
-      <router-link :to="{ name: 'login' }">
-        Have an account?
+      <router-link :to="{ name: 'register' }">
+        Dont have an account?
       </router-link>
     </form>
   </div>
@@ -55,11 +56,11 @@
 </template>
 
 <script>
-import { CSRF, REGISTER } from '@/constants'
+import { CSRF, LOGIN, TRACK } from '@/constants'
 import HttpService from '@/services/HttpService'
 
 export default {
-  name: 'Register',
+  name: 'login',
 
   data () {
     return {
@@ -73,7 +74,7 @@ export default {
 
   created () {
     return this.getToken()
-    .then(() => this.resetForm())
+        .then(() => this.resetForm())
   },
 
   methods: {
@@ -93,19 +94,17 @@ export default {
      */
     submit () {
       if (this.loading) return
-      if (!REGISTER.isValid(this.form)) return
+      if (!LOGIN.isValid(this.form)) return
 
       this.loading = true
 
-      return this.$store.dispatch('user/register', {
+      return this.$store.dispatch('user/login', {
         email: this.form.email,
         password: this.form.password
       })
-      .then(data => {
+      .then(() => {
         this.resetForm()
-        this.$nextTick(() => {
-          this.$router.push({ name: 'home' })
-        })
+        this.$router.push({ name: TRACK.route.name })
       })
       .catch(err => {
         // todo: display detail/message

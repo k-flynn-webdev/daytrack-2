@@ -1,12 +1,21 @@
 <template>
     <div class="track">
-      <span>{{ track.value }}</span>
-      <div class="tags">
-        <tag-item v-for="tag in track.tags"
-              :key="tag.id"
-              :tag="tag">
-        </tag-item>
+
+      <div class="notification">
+        {{ track.value }}
+
+        <div v-if="track.tags.length"
+             class="tags">
+          <tag-item v-for="tag in track.tags"
+                    :key="tag.id"
+                    :tag="tag">
+          </tag-item>
+        </div>
+
+        <div v-else
+             class="mt-1"></div>
       </div>
+
     </div>
 </template>
 

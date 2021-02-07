@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
-import Home from '../views/Home.vue'
+import Home from '../views/home.vue'
 const isAuthenticated = () => store.state.user.isLoggedIn
 // import userRoutes from './user'
 // import itemRoutes from './items'
@@ -17,6 +17,7 @@ Vue.use(VueRouter)
     {
       path: '/',
       name: 'home',
+      meta: { title: 'Tracks' },
       beforeEnter(to, from, next) {
         if (isAuthenticated()) {
           next({ name: 'track' })
@@ -28,12 +29,14 @@ Vue.use(VueRouter)
     {
       path: '/register',
       name: 'register',
-      component: () => import(/* webpackChunkName: "register" */ '../views/Register')
+      meta: { title: 'Register' },
+      component: () => import(/* webpackChunkName: "register" */ '../views/register')
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import(/* webpackChunkName: "login" */ '../views/Login')
+      meta: { title: 'Login' },
+      component: () => import(/* webpackChunkName: "login" */ '../views/login')
     },
     // {
     //   path: '/user',
@@ -43,6 +46,7 @@ Vue.use(VueRouter)
     {
       path: '/track',
       name: 'track',
+      meta: { title: 'Your Tracks' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })
@@ -54,6 +58,7 @@ Vue.use(VueRouter)
     {
       path: '/tag',
       name: 'tag-list',
+      meta: { title: 'Your Tags' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })
@@ -66,6 +71,7 @@ Vue.use(VueRouter)
       path: '/tag/:tag',
       name: 'tag',
       props: true,
+      meta: { title: 'Tag Detail' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })

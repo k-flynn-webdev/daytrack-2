@@ -1,0 +1,42 @@
+
+
+.daytrack {
+
+  .columns {
+    .column {
+      &.is-grow {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .track-list {
+    margin-top: $unit * 3;
+
+    .track {
+      .notification {
+        margin: 0;
+        padding: $unit $unit * 2;
+      }
+
+      margin-bottom: $unit * 5;
+    }
+
+  }
+
+  .tags {
+    display: block;
+    margin-top: $unit;
+  }
+
+  .tag {
+    &::before {
+      content: "#";
+    }
+
+    padding-top: 0.2rem;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
