@@ -1,16 +1,22 @@
 
-$color-bg: #e7ece9;
-$color-track: #92a8a8;
-$color-tag: #5a8878;
-$color-track-text: $color-bg;
-$color-tag-text: #000000;
-$color-shadow: hsla(0%,4%,10%,0.5);
+$color-bg: #26242B;
+$color-track: #434040;
+$color-tag: $info-dark;
+
+$color-text: #dbe9e6;
+$color-track-text: $color-text;
+$color-tag-text: $color-text;
+$color-shadow: hsla(0%,4%,40%,0.33);
+$shadow-size: 2px;
+
 
 html {
   background-color: $color-bg;
 }
 
 .daytrack {
+  color: $color-text;
+
   .columns {
     .column {
       &.is-grow {
@@ -31,7 +37,7 @@ html {
 
     .add {
       font-weight: bolder;
-      background-color: $color-tag;
+      background-color: $info;
     }
   }
 
@@ -40,11 +46,13 @@ html {
 
     .track {
       .notification {
+        //overflow: hidden;
+        font-weight: 400;
         margin: 0;
         padding: $unit $unit * 2;
         color: $color-track-text;
         background-color: $color-track;
-        border-bottom: solid 1px $color-shadow;
+        border-bottom: solid $shadow-size $color-shadow;
       }
 
       margin-bottom: $unit * 5;
@@ -58,12 +66,13 @@ html {
   }
 
   .tag {
+    font-weight: 900;
     color: $color-tag-text;
     background-color: $color-tag;
     padding-top: 0.2rem;
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
-    border-bottom: solid 1px $color-shadow;
+    border-bottom: solid $shadow-size $color-shadow;
   }
 }
