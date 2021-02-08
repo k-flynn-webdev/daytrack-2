@@ -1,15 +1,14 @@
 
 $color-bg: #e7ece9;
-$color-track: #9db7b2;
-$color-tag: #639690;
+$color-track: #92a8a8;
+$color-tag: #5a8878;
 $color-track-text: $color-bg;
-$color-tag-text: #303535;
-
+$color-tag-text: #000000;
+$color-shadow: hsla(0%,4%,10%,0.5);
 
 html {
   background-color: $color-bg;
 }
-
 
 .daytrack {
   .columns {
@@ -17,6 +16,22 @@ html {
       &.is-grow {
         flex-grow: 1;
       }
+    }
+  }
+
+  .track-create {
+    padding: $unit * 2;
+    border-radius: $unit;
+    background-color: $color-track;
+    //position: fixed;
+    top: $unit * 10;
+    left: $unit * 4;
+    right: $unit * 4;
+    z-index: 10;
+
+    .add {
+      font-weight: bolder;
+      background-color: $color-tag;
     }
   }
 
@@ -29,6 +44,7 @@ html {
         padding: $unit $unit * 2;
         color: $color-track-text;
         background-color: $color-track;
+        border-bottom: solid 1px $color-shadow;
       }
 
       margin-bottom: $unit * 5;
@@ -42,15 +58,12 @@ html {
   }
 
   .tag {
-
-    .tag-content {
-    }
-
     color: $color-tag-text;
     background-color: $color-tag;
     padding-top: 0.2rem;
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
+    border-bottom: solid 1px $color-shadow;
   }
 }

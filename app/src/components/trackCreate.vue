@@ -1,29 +1,31 @@
 <template>
-  <form class="track"
-        @submit.prevent="submit">
-    <div class="field">
-      <div class="control">
-        <input id="id-track"
-               v-model="form.value"
-               class="input"
-               type="text"
-               placeholder="..What happened?"
-               required>
+  <div class="track-create">
+    <form class="track"
+          @submit.prevent="submit">
+      <div class="field">
+        <div class="control">
+          <input id="id-track"
+                 v-model="form.value"
+                 class="input"
+                 type="text"
+                 placeholder="..What happened?"
+                 required>
+        </div>
       </div>
-    </div>
-    <div class="field is-flex">
-      <div class="control is-flex-grow-1">
-        <input id="id-tags"
-               v-model="form.tags"
-               type="text"
-               placeholder="..#Tags"
-               class="input">
+      <div class="field is-flex">
+        <div class="control is-flex-grow-1">
+          <input id="id-tags"
+                 v-model="form.tags"
+                 type="text"
+                 placeholder="..#Tags"
+                 class="input">
+        </div>
+        <button class="button is-success add ml-1">
+          {{ loading ? '...' : 'Add' }}
+        </button>
       </div>
-      <button class="button is-success ml-1">
-        {{ loading ? '...' : 'Add' }}
-      </button>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script>
