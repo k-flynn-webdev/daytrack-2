@@ -1,7 +1,17 @@
 
+$color-bg: #e7ece9;
+$color-track: #9db7b2;
+$color-tag: #639690;
+$color-track-text: $color-bg;
+$color-tag-text: #303535;
+
+
+html {
+  background-color: $color-bg;
+}
+
 
 .daytrack {
-
   .columns {
     .column {
       &.is-grow {
@@ -17,6 +27,8 @@
       .notification {
         margin: 0;
         padding: $unit $unit * 2;
+        color: $color-track-text;
+        background-color: $color-track;
       }
 
       margin-bottom: $unit * 5;
@@ -30,10 +42,12 @@
   }
 
   .tag {
-    &::before {
-      content: "#";
+
+    .tag-content {
     }
 
+    color: $color-tag-text;
+    background-color: $color-tag;
     padding-top: 0.2rem;
     margin-bottom: 0;
     display: inline-block;
