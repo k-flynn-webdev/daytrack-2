@@ -1,8 +1,12 @@
 <template>
     <div class="track">
 
-      <div class="notification bubble">
+      <div class="track__body bubble">
         {{ track.value }}
+
+        <div class="track__body-time is-size-7">
+          {{ track | tagDate }}
+        </div>
 
         <div v-if="track.tags.length"
              class="tags">

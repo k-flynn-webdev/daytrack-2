@@ -7,6 +7,16 @@ const createDate = (item, field) => {
   return [Day, Month, Year ]
 }
 
+const MONTHS = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
+
+const createDateMonth = (item, field) => {
+  const newDate = new Date(item[field])
+  const Day = newDate.getDate()
+  const Month = MONTHS[newDate.getMonth()]
+
+  return [Day, Month]
+}
+
 const ITEM_LOGIN = {
   name: 'itemLogin',
   filter: function (item, day=true, month=true, year=true) {
@@ -79,11 +89,20 @@ const ITEM_DONE = {
   }
 }
 
+const TAG_DATE = {
+  name: 'tagDate',
+  filter: function (item) {
+    if (!item) return ''
+    if (!item.created_at) return ''
+
+    const dateArr = createDateMonth(item, 'created_at')
+
+    return `${dateArr[0]} ${dateArr[1]}`
+  }
+}
+
 const ALL_FILTERS = [
-  ITEM_LOGIN,
-  ITEM_DATE,
-  ITEM_UPDATE,
-  ITEM_DONE
+  TAG_DATE,
 ]
 
 export default (Vue) => {

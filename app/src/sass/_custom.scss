@@ -51,21 +51,32 @@ html {
     margin-top: $unit * 3;
 
     .track {
-      .notification {
-        //overflow: hidden;
+      &__body {
+        @extend .notification;
         font-weight: 400;
         margin: 0;
         padding: $unit $unit * 2;
+        padding-right: 2.5rem;
         color: $color-track-text;
         background-color: $color-track;
+
+        &-time {
+          font-weight: bolder;
+          position: absolute;
+          right: $unit * 1;
+          top: $unit * 0;
+          z-index: 10;
+          opacity: 0.6;
+        }
       }
 
-      margin-bottom: $unit * 5;
+      margin-bottom: $unit * 4;
     }
 
   }
 
   .tags {
+    transform: translateY(27%);
     display: block;
     margin-top: $unit;
   }
