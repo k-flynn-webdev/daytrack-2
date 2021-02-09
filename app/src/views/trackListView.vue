@@ -1,9 +1,11 @@
 <template>
 
   <div class="column is-11">
+
     <track-create />
     <track-list v-if="isLoggedIn" />
     <div v-else>Not logged in</div>
+
   </div>
 
 </template>
@@ -21,10 +23,10 @@ export default {
     trackList
   },
 
- computed: {
+  computed: {
     isLoggedIn () {
       return this.$store.state[USER.store].isLoggedIn
     }
- }
+  },
 }
 </script>

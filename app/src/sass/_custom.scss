@@ -1,0 +1,82 @@
+
+
+$color-bg: #202835;
+$color-track: #2f3c4d;
+$color-tag: $success;
+
+$color-text: #dbe9e6;
+$color-track-text: $color-text;
+$color-tag-text: $color-text;
+$color-shadow: hsla(0%,0%,50%,0.1);
+$color-shadow-right: hsla(0%,0%,50%,0.1);
+$shadow-size: 2.3px;
+
+
+html {
+  background-color: $color-bg;
+}
+
+.daytrack {
+  color: $color-text;
+
+  .columns {
+    .column {
+      &.is-grow {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .bubble {
+    border-radius: $unit !important;
+    border-right: solid $shadow-size $color-shadow-right !important;
+    border-bottom: solid $shadow-size $color-shadow !important;
+  }
+
+  .track-create {
+    padding: $unit * 2;
+    background-color: $color-track;
+    //position: fixed;
+    top: $unit * 10;
+    left: $unit * 4;
+    right: $unit * 4;
+    z-index: 10;
+
+    .add {
+      font-weight: bolder;
+    }
+  }
+
+  .track-list {
+    margin-top: $unit * 3;
+
+    .track {
+      .notification {
+        //overflow: hidden;
+        font-weight: 400;
+        margin: 0;
+        padding: $unit $unit * 2;
+        color: $color-track-text;
+        background-color: $color-track;
+      }
+
+      margin-bottom: $unit * 5;
+    }
+
+  }
+
+  .tags {
+    display: block;
+    margin-top: $unit;
+  }
+
+  .tag {
+    font-weight: 900;
+    color: $color-tag-text;
+    background-color: $color-tag;
+    padding-top: 0.2rem;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

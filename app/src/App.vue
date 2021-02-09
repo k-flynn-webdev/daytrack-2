@@ -1,10 +1,13 @@
 <template>
   <div id="app"
-       class="p-1">
+       class="daytrack p-1">
 
     <div class="columns is-centered">
       <div class="column is-11 columns is-mobile">
         <navbar />
+        <div class="title is-2 has-text-centered column is-grow">
+          {{ $route.meta.title }}
+        </div>
         <logout />
       </div>
     </div>
@@ -23,9 +26,22 @@ import logout from '@/components/logout'
 export default {
   name: 'app',
 
+  data () {
+    return {
+      title: 'Tracks'
+    }
+  },
+
   components: {
     navbar,
     logout,
-  }
+  },
+
+  methods: {
+    onTitle (input) {
+      this.title = input
+    }
+  },
+
 }
 </script>

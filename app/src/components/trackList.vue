@@ -1,11 +1,17 @@
 <template>
     <div class="track-list">
 
-      <track-item v-for="item in trackList"
-           :key="item.id"
-           :track="item" />
+      <template v-if="!loading && getTrackList">
+        <track-item v-for="item in trackList"
+                    :key="item.id"
+                    :track="item" />
+      </template>
 
-      <div v-if="trackList.length < 1">
+      <div v-else-if="loading">
+        Loading
+      </div>
+
+      <div v-else-if="!loading && trackList.length < 1">
         No Tracks
       </div>
 

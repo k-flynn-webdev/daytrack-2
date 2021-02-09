@@ -1,8 +1,8 @@
 <template>
-  <span class="tag is-clickable"
+  <div class="tag bubble is-clickable"
         @click="onClick">
-    {{ tag.value }}
-  </span>
+    #{{ tag.value }}
+  </div>
 </template>
 
 <script>
