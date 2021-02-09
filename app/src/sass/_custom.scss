@@ -6,8 +6,9 @@ $color-tag: $info-dark;
 $color-text: #dbe9e6;
 $color-track-text: $color-text;
 $color-tag-text: $color-text;
-$color-shadow: hsla(0%,4%,40%,0.33);
-$shadow-size: 2px;
+$color-shadow: hsla(0%,4%,35%,0.33);
+$color-shadow-right: hsla(0%,4%,35%,0.5);
+$shadow-size: 1.5px;
 
 
 html {
@@ -25,9 +26,14 @@ html {
     }
   }
 
+  .bubble {
+    border-radius: $unit;
+    border-right: solid $shadow-size $color-shadow-right;
+    border-bottom: solid $shadow-size $color-shadow;
+  }
+
   .track-create {
     padding: $unit * 2;
-    border-radius: $unit;
     background-color: $color-track;
     //position: fixed;
     top: $unit * 10;
@@ -52,7 +58,6 @@ html {
         padding: $unit $unit * 2;
         color: $color-track-text;
         background-color: $color-track;
-        border-bottom: solid $shadow-size $color-shadow;
       }
 
       margin-bottom: $unit * 5;
@@ -73,6 +78,5 @@ html {
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
-    border-bottom: solid $shadow-size $color-shadow;
   }
 }

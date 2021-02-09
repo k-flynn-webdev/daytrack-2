@@ -1,5 +1,5 @@
 <template>
-  <div class="tag is-clickable"
+  <div class="tag bubble is-clickable"
         @click="onClick">
     #{{ tag.value }}
   </div>

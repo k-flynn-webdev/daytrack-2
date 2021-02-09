@@ -1,7 +1,7 @@
 <template>
     <div class="track">
 
-      <div class="notification">
+      <div class="notification bubble">
         {{ track.value }}
 
         <div v-if="track.tags.length"

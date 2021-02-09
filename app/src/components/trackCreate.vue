@@ -1,5 +1,5 @@
 <template>
-  <div class="track-create">
+  <div class="track-create bubble">
     <form class="track"
           @submit.prevent="submit">
       <div class="field">
@@ -20,7 +20,7 @@
                  placeholder="..#Tags"
                  class="input">
         </div>
-        <button class="button is-success add ml-1">
+        <button class="button is-success add ml-1 bubble">
           {{ loading ? '...' : 'Add' }}
         </button>
       </div>
