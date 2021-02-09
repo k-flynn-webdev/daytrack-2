@@ -1,14 +1,15 @@
 
-$color-bg: #26242B;
-$color-track: #434040;
-$color-tag: $info-dark;
+
+$color-bg: #202835;
+$color-track: #2f3c4d;
+$color-tag: $success;
 
 $color-text: #dbe9e6;
 $color-track-text: $color-text;
 $color-tag-text: $color-text;
-$color-shadow: hsla(0%,4%,35%,0.33);
-$color-shadow-right: hsla(0%,4%,35%,0.5);
-$shadow-size: 1.5px;
+$color-shadow: hsla(0%,0%,50%,0.1);
+$color-shadow-right: hsla(0%,0%,50%,0.1);
+$shadow-size: 2.3px;
 
 
 html {
@@ -27,9 +28,9 @@ html {
   }
 
   .bubble {
-    border-radius: $unit;
-    border-right: solid $shadow-size $color-shadow-right;
-    border-bottom: solid $shadow-size $color-shadow;
+    border-radius: $unit !important;
+    border-right: solid $shadow-size $color-shadow-right !important;
+    border-bottom: solid $shadow-size $color-shadow !important;
   }
 
   .track-create {
@@ -43,7 +44,6 @@ html {
 
     .add {
       font-weight: bolder;
-      background-color: $info;
     }
   }
 

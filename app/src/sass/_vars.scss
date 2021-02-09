@@ -22,8 +22,10 @@ $fullhd-enabled: false;
 // Update some of Bulma's component variables
 //$body-background-color: $beige-lighter;
 $control-border-width: 2px;
-$input-border-color: $light;
+$input-border-color: #efefea;
 $input-shadow: none;
+
+$success: #839F30;
 
 // Import only what you need from Bulma
 @import "~bulma/sass/utilities/_all.sass";
