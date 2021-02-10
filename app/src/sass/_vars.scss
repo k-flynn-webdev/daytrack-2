@@ -3,6 +3,20 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+$success: #839F30;
+$background: #202835;
+
+$color-bg: #202835;
+$color-track: #2f3c4d;
+$color-tag: $success;
+
+$color-text: #dbe9e6;
+$color-track-text: $color-text;
+$color-tag-text: $color-text;
+$color-shadow: hsla(0%,0%,50%,0.1);
+$color-shadow-right: hsla(0%,0%,50%,0.1);
+$shadow-size: 2.3px;
+
 // Set your brand colors
 //$purple: #8A4D76;
 //$pink: #FA7C91;
@@ -21,11 +35,10 @@ $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
 //$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: #efefea;
+$control-border-width: 1.4px;
+$input-border-color: rgba($color-text, 0.33);
 $input-shadow: none;
 
-$success: #839F30;
 
 // Import only what you need from Bulma
 @import "~bulma/sass/utilities/_all.sass";

@@ -1,54 +1,44 @@
 <template>
-  <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+  <div class="column is-5-tablet is-4-desktop is-3-widescreen register">
     <form class="box"
           @submit.prevent="submit">
       <div class="field">
         <label for="id-email" class="label">
           Email
         </label>
-        <div class="control has-icons-left">
+        <div class="control">
           <input id="id-email"
                  v-model="form.email"
                  class="input"
                  type="email"
                  placeholder="e.g. bobsmith@gmail.com"
                  required>
-          <span class="icon is-small is-left">
-          <i class="fa fa-envelope"></i>
-        </span>
         </div>
       </div>
       <div class="field">
         <label for="id-password" class="label">
           Password
         </label>
-        <div class="control has-icons-left">
+        <div class="control">
           <input id="id-password"
                  v-model="form.password"
                  type="password"
                  placeholder="*******"
                  class="input"
                  required>
-          <span class="icon is-small is-left">
-          <i class="fa fa-lock"></i>
-        </span>
         </div>
-      </div>
-      <!--      <div class="field">-->
-      <!--        <label for="id-remember" class="checkbox">-->
-      <!--          <input id="id-remember" type="checkbox">-->
-      <!--          Remember me-->
-      <!--        </label>-->
-      <!--      </div>-->
-      <div class="field">
-        <button class="button is-success">
-          {{ loading ? '...' : 'Register' }}
-        </button>
       </div>
 
       <router-link :to="{ name: 'login' }">
         Have an account?
       </router-link>
+
+      <div class="field mt-5">
+        <button class="button is-success">
+          {{ loading ? '...' : 'Register' }}
+        </button>
+      </div>
+
     </form>
   </div>
 

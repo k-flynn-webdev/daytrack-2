@@ -1,17 +1,4 @@
 
-
-$color-bg: #202835;
-$color-track: #2f3c4d;
-$color-tag: $success;
-
-$color-text: #dbe9e6;
-$color-track-text: $color-text;
-$color-tag-text: $color-text;
-$color-shadow: hsla(0%,0%,50%,0.1);
-$color-shadow-right: hsla(0%,0%,50%,0.1);
-$shadow-size: 2.3px;
-
-
 html {
   background-color: $color-bg;
 }
@@ -19,11 +6,25 @@ html {
 .daytrack {
   color: $color-text;
 
+  label { color: $color-text; }
+  input {
+    &::placeholder { color: rgba($color-text, 0.33); }
+    color: $color-text;
+    background-color: $color-bg;
+  }
+
   .columns {
     .column {
       &.is-grow {
         flex-grow: 1;
       }
+    }
+  }
+
+  .login,
+  .register {
+    .box {
+      background-color: $color-track;
     }
   }
 
@@ -75,7 +76,7 @@ html {
   }
 
   .tags {
-    transform: translateY(27%);
+    transform: translateY(23%);
     display: block;
     margin-top: $unit;
   }

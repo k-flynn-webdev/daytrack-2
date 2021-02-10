@@ -12,6 +12,7 @@
                  required>
         </div>
       </div>
+
       <div class="field is-flex">
         <div class="control is-flex-grow-1">
           <input id="id-tags"
@@ -20,9 +21,11 @@
                  placeholder="..#Tags"
                  class="input">
         </div>
-        <button class="button is-success add ml-1 bubble">
+
+        <button class="button is-success add ml-3 bubble">
           {{ loading ? '...' : 'Add' }}
         </button>
+
       </div>
     </form>
   </div>
