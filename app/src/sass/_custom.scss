@@ -88,5 +88,12 @@ html {
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
+
+    .value {
+      &::before {
+        opacity: 0.5;
+        content: "#";
+      }
+    }
   }
 }
