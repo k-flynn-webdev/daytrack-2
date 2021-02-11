@@ -184,6 +184,9 @@ export const TAG = {
   },
   API: {
     GET: '/api/tag/',
+    POST: '/api/tag/',
+    PATCH: '/api/tag/',
+    DELETE: '/api/tag/',
   },
   /**
    * Check if input is valid

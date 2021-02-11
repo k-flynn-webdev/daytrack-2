@@ -97,4 +97,19 @@ html {
       }
     }
   }
+
+  .tags-recent-list {
+    max-height: $unit;
+    margin-bottom: $unit * 2;
+    transform: translateY(75%);
+
+    .tag {
+      transition: 0.3s;
+      background-color: $color-tag-dark;
+
+      &:hover {
+        background-color: $color-tag;
+      }
+    }
+  }
 }

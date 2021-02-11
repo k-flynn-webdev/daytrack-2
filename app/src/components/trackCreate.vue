@@ -28,15 +28,23 @@
 
       </div>
     </form>
+
+    <tags-recent @tag-add="onTagAdd" @tagAdd="onTagAdd" />
+
   </div>
 </template>
 
 <script>
 import { CSRF, TRACK } from '@/constants'
 import HttpService from "@/services/HttpService";
+import tagsRecent from "@/components/tagsRecent";
 
 export default {
   name: 'Track',
+
+  components: {
+    tagsRecent
+  },
 
   data () {
     return {
@@ -54,6 +62,9 @@ export default {
   },
 
   methods: {
+    onTagAdd (item) {
+      this.form.tags = item.value
+    },
     /** Ensure API returns a legal `CSRF` cookie to improve security */
     getToken () {
       return HttpService.get(CSRF.API.GET)

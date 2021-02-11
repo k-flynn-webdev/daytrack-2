@@ -3,18 +3,19 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-$success: #839F30;
+$success: #839f30;
 $background: #202835;
 
 $color-bg: #202835;
 $color-track: #2f3c4d;
 $color-tag: $success;
+$color-tag-dark: #959e78;
 
 $color-text: #dbe9e6;
 $color-track-text: $color-text;
 $color-tag-text: $color-text;
-$color-shadow: hsla(0%,0%,50%,0.1);
-$color-shadow-right: hsla(0%,0%,50%,0.1);
+$color-shadow: hsla(0%,0%,60%,0.1);
+$color-shadow-right: hsla(0%,0%,60%,0.1);
 $shadow-size: 2.3px;
 
 // Set your brand colors
