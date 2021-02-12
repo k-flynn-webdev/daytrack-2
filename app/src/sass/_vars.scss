@@ -3,6 +3,9 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+$unit: 0.25rem;
+$transition: 0.3s;
+
 $success: #839f30;
 $background: #202835;
 
@@ -52,7 +55,6 @@ $input-shadow: none;
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/layout/section.sass";
 
-$unit: 0.25rem;
 
 $array: (0, 1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9);
 

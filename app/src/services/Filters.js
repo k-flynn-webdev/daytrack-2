@@ -103,6 +103,7 @@ const TAG_DATE = {
 
 const ALL_FILTERS = [
   TAG_DATE,
+  ITEM_DATE
 ]
 
 export default (Vue) => {

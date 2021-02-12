@@ -1,23 +1,21 @@
 <template>
     <div class="track">
 
-      <div class="track__body bubble">
+      <div class="track__body bubble"
+           :class="{ 'has-tags': track.tags.length > 0 }">
         {{ track.value }}
 
         <div class="track__body-time is-size-7">
           {{ track | tagDate }}
         </div>
 
-        <div v-if="track.tags.length"
-             class="tags">
-          <tag-item v-for="tag in track.tags"
-                    :key="tag.id"
-                    :tag="tag">
-          </tag-item>
-        </div>
+      </div>
 
-        <div v-else
-             class="mt-1"></div>
+      <div class="tag-list">
+        <tag-item v-for="tag in track.tags"
+                  :key="tag.id"
+                  :tag="tag">
+        </tag-item>
       </div>
 
     </div>

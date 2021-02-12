@@ -2,6 +2,10 @@
   <div class="tag bubble is-clickable"
         @click="onClick">
     <span class="value">{{ tag.value }}</span>
+    <div class="on-hover tag-info">
+      <div>created: {{ tag | itemDate }}</div>
+      <div>used: {{ tag.count_all }}</div>
+    </div>
   </div>
 </template>
 
