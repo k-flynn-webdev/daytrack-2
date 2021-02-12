@@ -64,7 +64,7 @@ html {
         background-color: $color-track;
 
         &.has-tags {
-          padding-bottom: $unit * 3;
+          padding-bottom: $unit * 2.5;
         }
 
         &-time {
@@ -81,8 +81,9 @@ html {
 
   .tag-list {
     max-height: $unit * 3;
-    transform: translateY(-90%);
-    margin-bottom: $unit * 3;
+    transform: translateY(-100%);
+    margin-bottom: $unit * 2.5;
+    padding: 0 $unit * 2;
   }
 
   .tag {
@@ -90,11 +91,12 @@ html {
     background-color: $color-tag;
     font-weight: 900;
     padding-top: 0.2rem;
-    margin: $unit;
-    margin-top: 0;
+    margin-right: $unit;
     display: inline-block;
     vertical-align: middle;
     position: relative;
+
+    &:last-of-type { margin: 0; }
 
     &-info {
       border-radius: $unit !important;
