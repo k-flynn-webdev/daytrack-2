@@ -28,7 +28,7 @@ export default {
 
   methods: {
     getRecentTags () {
-      return HttpService.get(TAG.API.GET)
+      return HttpService.get(TAG.API.GET, { params: { limit: 5 } })
       .then(({ data }) => {
         this.recentTags = data.results
       })
