@@ -97,6 +97,7 @@ class TagList(
             user=self.request.user).values_list('pk', flat=True)
         db_user_tags = Tag.objects.filter(track__in=list(db_user_tracks)).distinct()
         self.queryset = db_user_tags
+#         // todo: look into .annotate to add the count_all field and sort by *
         return self.queryset
 
     def get(self, request, *args, **kwargs):
