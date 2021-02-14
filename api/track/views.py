@@ -30,13 +30,14 @@ def tracks(request):
     if request.method == 'POST':
 
         data = request.data
-        value = data.get('value')
-        user = request.user
+        data_user = request.user
+        data_tags = data.get('tags')
+        data_track = data.get('track')
 
         try:
-            tags = tags_from_input(data.get('tags'), user)
-            validate({ 'user': user, 'value': value })
-            track = models.Track.objects.create(user=user, value=value)
+            tags = tags_from_input(data_tags, data_user)
+            validate({ 'user': data_user, 'track': data_track })
+            track = models.Track.objects.create(user=data_user, value=data_track)
             track.tags.set(tags)
             track.save()
         except testSerializers.ValidationError as e:

@@ -13,9 +13,9 @@ def validate(data):
         raise serializers.ValidationError('Tag missing User')
 
     if type(value) is not str:
-        raise serializers.ValidationError('Tag Value is not a string')
+        raise serializers.ValidationError(f'Tag ({value}) is not a string')
 
     if len(value) < min_tag_length:
-        raise serializers.ValidationError(f'Tag Value too short, must  be ({min_tag_length}) long')
+        raise serializers.ValidationError(f'Tag ({value}) too short, must  be ({min_tag_length}) long')
 
     return data

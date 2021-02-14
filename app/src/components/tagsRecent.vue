@@ -1,5 +1,6 @@
 <template>
   <div class="tag-list-recent">
+    <span class="tag-list-recent-label">Recent: </span>
     <tag-item v-for="item in recentTags"
               :key="item.id"
               :tag="item"
@@ -42,14 +43,13 @@ export default {
       })
     },
     onClick(item) {
-      this.$emit('tag-add', item)
+      this.$emit('tagAdd', item)
       for(let i = 0, max = this.recentTags.length; i < max; i++) {
         if (this.recentTags[i].value === item.value) {
           this.recentTags.splice( i, 1)
           return
         }
       }
-      // now kill this tag in the list ..
     }
   }
 }

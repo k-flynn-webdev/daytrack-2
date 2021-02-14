@@ -148,8 +148,8 @@ export const TRACK = {
    * @returns {boolean}
    */
   isValid: (input) => { return input &&
-      input.value &&
-      input.value.length >= 5 },
+      input.track &&
+      input.track.length >= 5 },
   /**
    * Creates default Track
    * @return {Track}

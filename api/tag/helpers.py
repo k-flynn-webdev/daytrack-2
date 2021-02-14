@@ -33,10 +33,12 @@ def tags_from_input(raw: list, user: object):
                 tmpStr = b.split(' ')
                 for c in tmpStr:
                     finalItems.append(c)
+            else:
+                finalItems.append(b)
 
         for d in finalItems:
-            if type(d) is object:
-                tags.append(item)
+            if type(d) is dict:
+                tags.append(Tag.objects.get(pk=d['id']))
 
             if type(d) is str:
                 try:

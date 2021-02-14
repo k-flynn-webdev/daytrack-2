@@ -13,6 +13,14 @@ html {
     background-color: $color-bg;
   }
 
+  .input {
+    border: $color-input-border solid $control-border-width;
+
+    &:hover {
+      border: $color-text solid $control-border-width;
+    }
+  }
+
   .columns {
     .column {
       &.is-grow {
@@ -60,6 +68,13 @@ html {
           border: $color-text solid $control-border-width;
         }
 
+        .input {
+          border: none;
+          &:hover {
+            border: none;
+          }
+        }
+
         &-input {
           position: absolute;
           z-index: 1;
@@ -85,7 +100,7 @@ html {
 
         .tag {
           position: relative;
-          z-index: 1;
+          z-index: 2;
 
           &:first-of-type {
             margin-left: $unit * 2;
@@ -108,50 +123,26 @@ html {
       }
     }
 
-    .add {
+    .button-add {
+      @extend .button;
+      @extend .bubble;
+
+      border: none;
+      margin-left: $unit * 2;
+      margin-top: $unit * 0.5;
       font-weight: bolder;
+
+      color: $color-text;
+      background-color: $success;
     }
-
-
-    // TBD
-    .tag-input {
-      width: 100%;
-      border: 1px solid #eee;
-      font-size: 0.9em;
-      height: 50px;
-      box-sizing: border-box;
-      padding: 0 10px;
-    }
-
-    //.tag-input__tag {
-    //  height: 30px;
-    //  float: left;
-    //  margin-right: 10px;
-    //  background-color: #eee;
-    //  margin-top: 10px;
-    //  line-height: 30px;
-    //  padding: 0 5px;
-    //  border-radius: 5px;
-    //}
-
-    //.tag-input__tag > span {
-    //  cursor: pointer;
-    //  opacity: 0.75;
-    //}
-
-    //.tag-input__text {
-    //  border: none;
-    //  outline: none;
-    //  font-size: 0.9em;
-    //  line-height: 50px;
-    //  background: none;
-    //}
   }
 
   .track-list {
     margin-top: $unit * 5;
 
     .track {
+      margin-bottom: $unit * 3.5;
+
       &__body {
         position: relative;
         z-index: -1;
@@ -163,7 +154,7 @@ html {
         background-color: $color-track;
 
         &.has-tags {
-          padding-bottom: $unit * 2.5;
+          padding-bottom: $unit * 4;
         }
 
         &-time {
@@ -179,14 +170,20 @@ html {
   }
 
   .tag-list {
-    max-height: $unit * 3;
-    transform: translateY(-100%);
-    margin-bottom: $unit * 2.5;
+    max-height: $unit * 0;
+    position: relative;
+    bottom: $unit * 4.5;
     padding: 0 $unit * 2;
 
     &-recent {
-      margin-top: $unit * 2;
-      max-height: $unit * 3;
+      margin-left: $unit;
+      margin-top: $unit * 2.75;
+      max-height: $unit * 5;
+
+      &-label {
+        position: relative;
+        top: $unit * -1;
+      }
 
       .tag {
         transition: $transition;
