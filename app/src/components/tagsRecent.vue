@@ -1,20 +1,25 @@
 <template>
-  <div class="tags-recent-list">
-    <div v-for="item in recentTags"
-          :key="item.id"
-          class="tag is-clickable mr-1"
-          @click="onClick(item)">
-      <span class="value">{{ item.value }}</span>
-    </div>
+  <div class="tag-list-recent">
+    <tag-item v-for="item in recentTags"
+              :key="item.id"
+              :tag="item"
+              :allow-url="false"
+              :allow-info="false"
+              @click="onClick(item)" />
   </div>
 </template>
 
 <script>
 import HttpService from "@/services/HttpService";
+import tagItem from "@/components/tagItem";
 import { TAG } from '@/constants'
 
 export default {
   name: 'tags-recent',
+
+  components: {
+    tagItem
+  },
 
   data () {
     return {
