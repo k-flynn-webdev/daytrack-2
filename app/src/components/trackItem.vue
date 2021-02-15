@@ -1,5 +1,6 @@
 <template>
-    <div class="track">
+    <div class="track"
+         :class="trackDateClass">
 
       <div class="track__body bubble"
            :class="{ 'has-tags': track.tags.length > 0 }">
@@ -36,6 +37,14 @@ export default {
     track: {
       type: Object,
       default: TRACK.default()
+    }
+  },
+
+  computed: {
+    trackDateClass () {
+      const newDateInt = new Date(this.track.created_at).getDate()
+      if (newDateInt % 2 === 1) { return 'is-light' }
+      return null
     }
   }
 }
