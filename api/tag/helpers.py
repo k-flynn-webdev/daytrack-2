@@ -45,7 +45,7 @@ def tags_from_input(raw: list, user: object):
                     obj = Tag.objects.get(value=d)
                 except Tag.DoesNotExist:
                     validate({ 'value': d, 'user': user })
-                    obj = Tag.objects.create(value=d, user=user)
+                    obj = Tag.objects.create(value=d.lower(), user=user)
                     obj.save()
 
                 tags.append(obj)

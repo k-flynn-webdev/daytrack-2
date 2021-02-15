@@ -1,6 +1,9 @@
 <template>
   <div class="tag-list-recent">
-    <span class="tag-list-recent-label">Recent: </span>
+    <span class="tag-list-recent-label is-size-6 is-clickable"
+          @click="getRecentTags">
+      Recent:
+    </span>
     <tag-item v-for="item in recentTags"
               :key="item.id"
               :tag="item"

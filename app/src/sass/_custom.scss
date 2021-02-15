@@ -154,7 +154,7 @@ html {
         background-color: $color-track;
 
         &.has-tags {
-          padding-bottom: $unit * 4;
+          padding-bottom: $unit * 5;
         }
 
         &-time {
@@ -183,6 +183,8 @@ html {
       &-label {
         position: relative;
         top: $unit * -1;
+        font-weight: 800;
+        color: $color-tag-dark;
       }
 
       .tag {
@@ -246,6 +248,8 @@ html {
 
 
     .value {
+      text-transform: lowercase;
+
       &::before {
         opacity: 0.5;
         content: "#";
