@@ -17,7 +17,7 @@ Vue.use(VueRouter)
     {
       path: '/',
       name: 'home',
-      meta: { title: 'Tracks' },
+      meta: { title: 'Mini-Tracks' },
       beforeEnter(to, from, next) {
         if (isAuthenticated()) {
           next({ name: 'track' })
@@ -46,7 +46,7 @@ Vue.use(VueRouter)
     {
       path: '/track',
       name: 'track',
-      meta: { title: 'Your Tracks' },
+      meta: { title: 'Mini-Tracks' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })
@@ -58,7 +58,7 @@ Vue.use(VueRouter)
     {
       path: '/tag',
       name: 'tag-list',
-      meta: { title: 'Your Tags' },
+      meta: { title: 'Mini-Tags' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })
@@ -71,7 +71,7 @@ Vue.use(VueRouter)
       path: '/tag/:tag',
       name: 'tag',
       props: true,
-      meta: { title: 'Tag Detail' },
+      meta: { title: 'Mini-Tag' },
       beforeEnter(to, from, next) {
         if (!isAuthenticated()) {
           next({ name: 'home' })

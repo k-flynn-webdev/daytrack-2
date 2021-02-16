@@ -182,13 +182,15 @@ html {
     //bottom: $unit * 4.5;
     bottom: $unit * -2;
     padding: 0 $unit * 2;
-    max-width: 100%;
-    max-height: $unit * 6.75;
-    overflow: hidden;
+    //max-width: 100%;
+    white-space: nowrap;
+    //max-height: $unit * 6.75;
+    //overflow: hidden;
 
     &-recent {
       margin-left: $unit;
       margin-top: $unit * 2.75;
+      white-space: nowrap;
       max-height: $unit * 5;
 
       &-label {
