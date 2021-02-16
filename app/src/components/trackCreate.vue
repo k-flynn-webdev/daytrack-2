@@ -18,17 +18,6 @@
       <div class="track-create__tag">
         <div class="track-create__tag__row">
 
-          <!-- fake input bar to capture input on this row -->
-          <input
-              type="text"
-              class="track-create__tag__row-input input"
-              v-model="tagInput"
-              @keydown.32="onTagAdd"
-              @keydown.188="onTagAdd"
-              @keydown.enter="onTagAdd"
-              @keydown.delete="onTagRemove"
-          />
-
           <tag-item v-for="tag in form.tags"
                     :key="tag.value"
                     :tag="tag"
@@ -41,7 +30,7 @@
               placeholder="..#Tags"
               class="track-create__tag__row-text input"
               v-model="tagInput"
-              @keydown.9="onTagAdd"
+              @blur="onTagAdd"
               @keydown.32="onTagAdd"
               @keydown.188="onTagAdd"
               @keydown.enter="onTagAdd"
@@ -103,7 +92,7 @@ export default {
     /**
      * Add a Tag object or Tag value, no duplicates allowed
      *
-     * @param {event|Tag}    input    object {event} or object {Tag}
+     * @param {event|Tag}     input   object {event} or object {Tag}
      */
     onTagAdd (input) {
       if (input.id && input.value) {

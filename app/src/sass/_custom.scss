@@ -141,20 +141,23 @@ html {
     margin-top: $unit * 5;
 
     .track {
-      margin-bottom: $unit * 3.5;
+      position: relative;
+      margin-bottom: $unit * 3.75;
 
       &__body {
+        margin: 0;
+        font-weight: 400;
         position: relative;
         z-index: -1;
-        font-weight: 400;
-        margin: 0;
         padding: $unit $unit * 2;
         padding-right: 2.5rem;
+        padding-bottom: $unit * 0.25;
         color: $color-track-text;
         background-color: $color-track;
 
         &.has-tags {
-          padding-bottom: $unit * 5;
+          padding-bottom: $unit * 4;
+          margin-bottom: $unit * 4.25;
         }
 
         &-time {
@@ -174,10 +177,14 @@ html {
   }
 
   .tag-list {
-    max-height: $unit * 0;
-    position: relative;
-    bottom: $unit * 4.5;
+    //max-height: $unit * 0;
+    position: absolute;
+    //bottom: $unit * 4.5;
+    bottom: $unit * -2;
     padding: 0 $unit * 2;
+    max-width: 100%;
+    max-height: $unit * 6.75;
+    overflow: hidden;
 
     &-recent {
       margin-left: $unit;
