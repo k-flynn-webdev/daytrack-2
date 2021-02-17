@@ -15,9 +15,10 @@ $color-track-light: #3a495e;
 $color-tag: $success;
 $color-tag-dark: #959e78;
 
-$color-text: #dbe9e6;
-$color-track-text: $color-text;
-$color-tag-text: $color-text;
+$white: #dbe9e6;
+$color-text: $white;
+$color-track-text: $white;
+$color-tag-text: $white;
 $color-shadow: hsla(0%,0%,60%,0.1);
 $color-shadow-right: hsla(0%,0%,60%,0.1);
 $shadow-size: 2.3px;

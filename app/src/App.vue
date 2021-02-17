@@ -7,7 +7,7 @@
       <div class="columns is-centered">
         <div class="column is-11 columns is-mobile">
           <navbar />
-          <div class="title is-2 has-text-centered column is-grow">
+          <div class="title is-2 has-text-centered has-text-white column is-grow">
             {{ $route.meta.title }}
           </div>
           <logout />
