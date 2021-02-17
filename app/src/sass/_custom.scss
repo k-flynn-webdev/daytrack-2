@@ -3,7 +3,8 @@ html {
   background-color: $color-bg;
 }
 
-.daytrack {
+.mini-track {
+  min-height: 40rem;
   color: $color-text;
 
   label { color: $color-text; }

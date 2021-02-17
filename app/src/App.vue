@@ -1,6 +1,6 @@
 <template>
   <div id="app"
-       class="daytrack p-1">
+       class="mini-track p-1">
 
     <section class="container">
 
@@ -20,12 +20,15 @@
 
     </section>
 
+    <page-footer />
+
   </div>
 </template>
 
 <script>
 import navbar from '@/components/navbar'
 import logout from '@/components/logout'
+import pageFooter from '@/components/pageFooter'
 
 export default {
   name: 'app',
@@ -39,6 +42,7 @@ export default {
   components: {
     navbar,
     logout,
+    pageFooter
   },
 
   methods: {
