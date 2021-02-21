@@ -2,7 +2,7 @@ server {
 		listen 80;
 		listen [::]:80;
 
-		root /home/user01/app-minitrack/static;
+		root /home/user01/app-minitrack;
 		index index.html index.htm index.nginx-debian.html;
 
 		access_log /var/log/nginx/app-minitrack.log;
@@ -15,7 +15,7 @@ server {
 		}
 
 		location /static/ {
-				alias /app-minitrack/static/;
+				alias /home/user01/app-minitrack/static/;
 		}
 
 		location /api {
