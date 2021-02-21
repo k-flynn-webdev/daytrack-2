@@ -2,7 +2,7 @@ server {
 		listen 80;
 		listen [::]:80;
 
-		root /home/user01/app-minitrack;
+		root /home/user01/app-minitrack/static;
 		index index.html index.htm index.nginx-debian.html;
 
 		access_log /var/log/nginx/app-minitrack.log;
@@ -14,9 +14,9 @@ server {
 			try_files $uri /index.html;
 		}
 
-		location /static/ {
-				root /home/user01/app-minitrack/static/;
-		}
+		location /static {
+       root /home/user01/app-minitrack;
+    }
 
 		location /api {
 			proxy_pass 					http://localhost:8542;
