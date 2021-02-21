@@ -15,7 +15,7 @@ server {
 		}
 
 		location /static/ {
-				alias /home/user01/app-minitrack/static/;
+				root /home/user01/app-minitrack/static/;
 		}
 
 		location /api {
