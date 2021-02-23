@@ -32,7 +32,7 @@ DEBUG = os.getenv("APP_MODE") == 'DEBUG'
 # SECURITY
 SECRET_KEY = os.getenv("APP_SECRET")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'minitrack.kubedev.co.uk', 'www.minitrack.kubedev.co.uk']
 
 # Application definition
 INSTALLED_APPS = [
