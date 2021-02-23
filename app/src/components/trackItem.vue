@@ -13,10 +13,12 @@
       </div>
 
       <div class="tag-list">
-        <tag-item v-for="tag in track.tags"
-                  :key="tag.id"
-                  :tag="tag">
-        </tag-item>
+        <div class="tag-list-content">
+          <tag-item v-for="tag in track.tags"
+                    :key="tag.id"
+                    :tag="tag">
+          </tag-item>
+        </div>
       </div>
 
     </div>

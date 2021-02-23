@@ -140,53 +140,61 @@ html {
 
   .track-list {
     margin-top: $unit * 5;
+  }
 
-    .track {
+  .track {
+    position: relative;
+    margin-bottom: $unit * 3.75;
+
+    &__body {
+      margin: 0;
+      font-weight: 400;
       position: relative;
-      margin-bottom: $unit * 3.75;
+      z-index: -1;
+      padding: $unit $unit * 2;
+      padding-right: 2.5rem;
+      padding-bottom: $unit * 0.25;
+      color: $color-track-text;
+      background-color: $color-track;
 
-      &__body {
-        margin: 0;
-        font-weight: 400;
-        position: relative;
-        z-index: -1;
-        padding: $unit $unit * 2;
-        padding-right: 2.5rem;
-        padding-bottom: $unit * 0.25;
-        color: $color-track-text;
-        background-color: $color-track;
-
-        &.has-tags {
-          padding-bottom: $unit * 4;
-          margin-bottom: $unit * 4.25;
-        }
-
-        &-time {
-          font-weight: bolder;
-          position: absolute;
-          right: $unit * 1;
-          top: $unit * 0;
-          z-index: 10;
-          opacity: 0.6;
-        }
+      &.has-tags {
+        padding-bottom: $unit * 4;
+        margin-bottom: $unit * 4.25;
       }
 
-      &.is-light .track__body {
-        background-color: $color-track-light;
+      &-time {
+        font-weight: bolder;
+        position: absolute;
+        right: $unit * 1;
+        top: $unit * 0;
+        z-index: 10;
+        opacity: 0.6;
       }
+    }
+
+    &.is-light .track__body {
+      background-color: $color-track-light;
     }
   }
 
   .tag-list {
-    //max-height: $unit * 0;
     position: absolute;
-    //bottom: $unit * 4.5;
-    bottom: $unit * -2;
-    padding: 0 $unit * 2;
-    //max-width: 100%;
+    left: 0;
+    bottom: -1.1rem;
+    width: 100%;
+    max-width: 100%;
+    height: 3rem;
+    z-index: 5;
+    overflow: hidden;
     white-space: nowrap;
-    //max-height: $unit * 6.75;
-    //overflow: hidden;
+
+    &-content {
+      position: relative;
+      bottom: -0.75rem;
+      padding: 0 $unit * 2;
+      width: 100%;
+      max-width: 100%;
+    }
 
     &-recent {
       margin-left: $unit;
@@ -222,13 +230,14 @@ html {
     vertical-align: middle;
     position: relative;
 
+    &:first-of-type { margin-left: 0; }
     &:last-of-type { margin: 0; }
 
     &-info {
       border-radius: $unit !important;
       position: absolute;
       left: 100%;
-      top: 50%;
+      top: 55%;
       transform: translateY(-50%);
       opacity: 0;
       transition: opacity $transition;
@@ -259,7 +268,6 @@ html {
         z-index: 100;
       }
     }
-
 
     .value {
       text-transform: lowercase;
