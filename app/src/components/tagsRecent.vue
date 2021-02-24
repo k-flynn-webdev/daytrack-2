@@ -1,15 +1,17 @@
 <template>
-  <div class="tag-list-recent">
-    <span class="tag-list-recent-label is-size-6 is-clickable"
-          @click="getRecentTags">
-      Recent:
-    </span>
-    <tag-item v-for="item in recentTags"
-              :key="item.id"
-              :tag="item"
-              :allow-url="false"
-              :allow-info="false"
-              @click="onClick(item)" />
+  <div class="tag-list recent">
+    <div class="tag-list-content">
+      <span class="label is-size-6 is-clickable"
+            @click="getRecentTags">
+        Recent:
+      </span>
+      <tag-item v-for="item in recentTags"
+                :key="item.id"
+                :tag="item"
+                :allow-url="false"
+                :allow-info="false"
+                @click="onClick(item)" />
+    </div>
   </div>
 </template>
 
