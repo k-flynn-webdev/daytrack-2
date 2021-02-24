@@ -90,12 +90,27 @@ export default {
       return HttpService.get(CSRF.API.GET)
     },
     /**
+     * Check if a tag by value currently
+     * exists in the form.tags
+     *
+     * @param   {string}    value   string value to check for
+     * @returns {boolean}           returns if the value already exists
+     */
+    checkTagExists (value) {
+      for (let i = 0; i < this.form.tags.length; i++) {
+        if (this.form.tags[i].value === value) return true
+      }
+
+      return false
+    },
+    /**
      * Add a Tag object or Tag value, no duplicates allowed
      *
      * @param {event|Tag}     input   object {event} or object {Tag}
      */
     onTagAdd (input) {
       if (input.id && input.value) {
+        if (this.checkTagExists(input.value)) return
         this.form.tags.push(input)
         return
       }
@@ -104,13 +119,11 @@ export default {
       let val = input.target.value.trim()
       if (val.length > 0) {
         // no duplicates allowed
-        for (let i = 0; i < this.form.tags.length; i++) {
-          if (this.form.tags[i].value === val) return
-        }
+        if (this.checkTagExists(val)) return
 
         this.form.tags.push({ value: val })
-        input.target.value = ''
         this.tagInput = ''
+        input.target.value = ''
       }
     },
     /**
