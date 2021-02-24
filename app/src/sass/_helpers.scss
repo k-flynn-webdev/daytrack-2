@@ -52,6 +52,12 @@
   }
 }
 
+//@include mobile () {
+//  .mx-mobile-1 {
+//    margin: 1rem;
+//  }
+//}
+
 // colours
 @each $color, $value in $colors {
   .is-border-#{$color} {

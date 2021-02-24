@@ -1,10 +1,10 @@
 <template>
-  <div class="column is-narrow">
+  <div class="">
     <div v-if="isLoggedIn">
       <span class="mr-2">{{ userName }}</span>
       <button class="button is-success"
               @click="submit">
-        {{ loading ? '...' : 'Logout' }}
+        {{ loading ? '-~-' : 'X' }}
       </button>
     </div>
 

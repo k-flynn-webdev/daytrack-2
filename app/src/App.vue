@@ -4,14 +4,12 @@
 
     <section class="container">
 
-      <div class="columns is-centered">
-        <div class="column is-11 columns is-mobile">
-          <navbar />
-          <div class="title is-2 has-text-centered has-text-white column is-grow">
-            {{ $route.meta.title }}
-          </div>
-          <logout />
-        </div>
+      <div class="level is-mobile mb-3">
+        <router-link :to="{ name: 'home' }"
+                     class="title has-text-white level-item">
+          {{ $route.meta.title }}
+        </router-link>
+        <logout class="level-right" />
       </div>
 
       <div class="columns is-centered">

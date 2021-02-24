@@ -4,8 +4,9 @@ html {
 }
 
 .mini-track {
-  min-height: 40rem;
+  font-family: 'Poppins', sans-serif;
   color: $color-text;
+  min-height: 40rem;
 
   label { color: $color-text; }
   input {
@@ -149,7 +150,7 @@ html {
       position: relative;
       z-index: -1;
       padding: $unit $unit * 2;
-      padding-right: 2.5rem;
+      padding-right: 2.75rem;
       padding-bottom: $unit * 0.25;
       color: $color-track-text;
       background-color: $color-track;
@@ -162,10 +163,10 @@ html {
       &-time {
         font-weight: bolder;
         position: absolute;
-        right: $unit * 1;
-        top: $unit * 0;
+        top: $unit * 0.75;
+        right: $unit * 1.5;
         z-index: 10;
-        opacity: 0.6;
+        opacity: 0.66;
       }
     }
 
@@ -268,11 +269,13 @@ html {
     }
 
     .value {
+      font-weight: 600;
       text-transform: lowercase;
 
       &::before {
-        opacity: 0.5;
         content: "#";
+        opacity: 0.66;
+        margin-right: $unit * 0.5;
       }
     }
   }
