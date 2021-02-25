@@ -1,7 +1,7 @@
 // todo : Add default func objects in each object
 
 export const VARS = {
-  name: 'Daytrack',
+  name: 'Minitrack',
   pageLimit: 20,
   sort: {
     direction: [
@@ -138,10 +138,10 @@ export const TRACK = {
     path: '/track',
   },
   API: {
-    GET: '/api/track/',
-    POST: '/api/track/',
-    PATCH: '/api/track/',
-    DELETE: '/api/track/',
+    GET: '/api/track',
+    POST: '/api/track',
+    PATCH: '/api/track',
+    DELETE: '/api/track',
   },
   /**
    * Check if input is valid
@@ -183,10 +183,10 @@ export const TAG = {
     path: '/tag',
   },
   API: {
-    GET: '/api/tag/',
-    POST: '/api/tag/',
-    PATCH: '/api/tag/',
-    DELETE: '/api/tag/',
+    GET: '/api/tag',
+    POST: '/api/tag',
+    PATCH: '/api/tag',
+    DELETE: '/api/tag',
   },
   /**
    * Check if input is valid
