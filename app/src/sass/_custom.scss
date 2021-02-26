@@ -136,12 +136,11 @@ html {
       color: $color-text;
       background-color: $success;
 
-      &::after {
-        content: '';
-        width: 1rem;
-        height: 1rem;
-        transform: rotateZ(45deg);
-        background-color: $color-text;
+      &:disabled {
+        opacity: 1;
+        color: $color-text;
+        background-color: $success;
+        svg { opacity: 0.33; }
       }
     }
   }
