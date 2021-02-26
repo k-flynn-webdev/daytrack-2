@@ -22,5 +22,6 @@ workon $APP_ENVIROMENT
 cd $script_location/api
 pwd
 
-python3 manage.py collectstatic
-
+#// Copy files across
+python3 manage.py collectstatic --noinput
+cp $script_location/app/dist/index.html $script_location/static/index.html
