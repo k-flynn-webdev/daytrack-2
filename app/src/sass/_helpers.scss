@@ -68,6 +68,11 @@
   }
 }
 
+.is-smaller {
+  @extend .is-small;
+  transform: scale(0.85);
+}
+
 .icon {
   &.small {
     width: 1rem;

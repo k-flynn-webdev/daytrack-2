@@ -2,9 +2,9 @@
   <div class="">
     <div v-if="isLoggedIn">
       <span class="mr-2">{{ userName }}</span>
-      <button class="button is-success"
+      <button class="button is-success is-smaller"
               @click="submit">
-        {{ loading ? '-~-' : 'X' }}
+        {{ loading ? '..' : 'X' }}
       </button>
     </div>
 

@@ -55,7 +55,7 @@ export default {
      */
     getTagDetail () {
       if (!this.tag) return
-
+      console.log(`${TAG.API.GET}/${this.tag}`)
       return HttpService.get(`${TAG.API.GET}/${this.tag}`)
       .then(({ data }) => {
         this.detail = data.results

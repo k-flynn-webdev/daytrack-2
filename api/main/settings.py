@@ -32,7 +32,36 @@ DEBUG = os.getenv("APP_MODE") == 'DEBUG'
 # SECURITY
 SECRET_KEY = os.getenv("APP_SECRET")
 
+ROOT_URLCONF = 'main.urls'
+WSGI_APPLICATION = 'main.wsgi.application'
+APPEND_SLASH=False
+AUTH_USER_MODEL = 'users.CustomUser'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'minitrack.kubedev.co.uk', 'www.minitrack.kubedev.co.uk']
+
+# SECURITY
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+CSRF_COOKIE_SAMESITE = 'Strict'
+CSRF_COOKIE_HTTPONLY = False        # todo: this breaks the vue spa in develop when true
+SESSION_COOKIE_SAMESITE = 'Strict'
+SESSION_COOKIE_HTTPONLY = True
+
+# PROD ONLY
+if os.getenv("APP_MODE") == 'PRODUCTION':
+    CSRF_COOKIE_SECURE = True           # requires https
+    SESSION_COOKIE_SECURE = True        # requires https
+
+# Internationalization
+# https://docs.djangoproject.com/en/3.1/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -61,8 +90,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'main.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,9 +105,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'main.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -102,8 +126,6 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'users.CustomUser'
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -124,32 +146,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-# SECURITY
-CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
-CSRF_COOKIE_SAMESITE = 'Strict'
-CSRF_COOKIE_HTTPONLY = False        # todo: this breaks the vue spa in develop when true
-SESSION_COOKIE_SAMESITE = 'Strict'
-SESSION_COOKIE_HTTPONLY = True
-
-# PROD ONLY
-if os.getenv("APP_MODE") == 'PRODUCTION':
-    CSRF_COOKIE_SECURE = True           # requires https
-    SESSION_COOKIE_SECURE = True        # requires https
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [

@@ -40,8 +40,8 @@
         </div>
 
         <button class="button-add bubble"
+                :class="{ 'is-loading': loading }"
                 type="submit">
-          {{ loading ? '...' : 'Add' }}
         </button>
 
       </div>

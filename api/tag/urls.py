@@ -7,5 +7,5 @@ from . import views
 
 urlpatterns = [
     path('', views.TagList.as_view(), name='tag-list'),
-    path('<value>/', views.TagDetail.as_view(), name='tag-detail'),
+    path('/<value>', views.TagDetail.as_view(), name='tag-detail'),
 ]

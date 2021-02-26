@@ -20,7 +20,7 @@ export const VARS = {
 export const CSRF = {
   value: 'csrf',
   API: {
-    GET: '/api/csrf/',
+    GET: '/api/csrf',
   }
 }
 
@@ -49,7 +49,7 @@ export const REGISTER = {
   value: 'login',
   route: { name: 'login', path: '/login' },
   API: {
-    POST: '/rest-auth/register/'
+    POST: '/rest-auth/register'
   },
   isValid: (input) => {
     return (input &&
@@ -64,7 +64,7 @@ export const LOGIN = {
   value: 'login',
   route: { name: 'login', path: '/login' },
   API: {
-    POST: '/rest-auth/login/'
+    POST: '/rest-auth/login'
   },
   isValid: (input) => {
     return (input &&
@@ -79,7 +79,7 @@ export const LOGOUT = {
   value: 'logout',
   route: { name: 'logout', path: '/logout' },
   API: {
-    DELETE: '/rest-auth/logout/'
+    DELETE: '/rest-auth/logout'
   }
 }
 
@@ -103,7 +103,7 @@ export const USER = {
   store: 'user',
   route: { name: 'user', path: '/user' },
   API: {
-    GET: '/rest-auth/user/'
+    GET: '/rest-auth/user'
   }
 }
 
