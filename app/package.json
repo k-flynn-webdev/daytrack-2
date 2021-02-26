@@ -1,6 +1,6 @@
 {
-  "name": "daytrack",
-  "version": "0.1.5",
+  "name": "minitrack",
+  "version": "0.2.5",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
