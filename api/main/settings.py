@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv("APP_SECRET")
 
 ROOT_URLCONF = 'main.urls'
 WSGI_APPLICATION = 'main.wsgi.application'
-APPEND_SLASH=False
+APPEND_SLASH = False
 AUTH_USER_MODEL = 'users.CustomUser'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'minitrack.kubedev.co.uk', 'www.minitrack.kubedev.co.uk']
 
@@ -44,6 +44,7 @@ CSRF_COOKIE_SAMESITE = 'Strict'
 CSRF_COOKIE_HTTPONLY = False        # todo: this breaks the vue spa in develop when true
 SESSION_COOKIE_SAMESITE = 'Strict'
 SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_AGE = 1209600
 
 # PROD ONLY
 if os.getenv("APP_MODE") == 'PRODUCTION':
