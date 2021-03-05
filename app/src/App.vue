@@ -2,6 +2,8 @@
   <div id="app"
        class="mini-track p-1">
 
+    <message />
+
     <section class="container">
 
       <div class="level is-mobile mb-3">
@@ -24,7 +26,6 @@
 </template>
 
 <script>
-import navbar from '@/components/navbar'
 import logout from '@/components/logout'
 import pageFooter from '@/components/pageFooter'
 
@@ -38,7 +39,6 @@ export default {
   },
 
   components: {
-    navbar,
     logout,
     pageFooter
   },

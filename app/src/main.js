@@ -3,7 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import filters from './services/Filters'
+import message from './components/messagePlugin'
+
 Vue.use(filters)
+Vue.use(message)
 
 import './sass/index.scss'
 
