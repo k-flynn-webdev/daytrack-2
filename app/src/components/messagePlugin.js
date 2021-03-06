@@ -3,7 +3,8 @@
  *
  * @property {string}   id            Added on creation
  * @property {string}   message
- * @property {boolean}  closeable
+ * @property {string}   class
+ * @property {boolean}  closeable     default = true
  * @property {number}   timeDelay     Time in seconds
  * @property {number}   timeDisplay   Time in seconds
  */
@@ -34,6 +35,7 @@ const generateId = (input) => {
  */
 const createMessage = (msg) => {
   msg.id = generateId(msg.message)
+  msg.closeable = msg.closeable || true
 
   for(let i = 0; i < opts.items.length; i++ ) {
     if (opts.items[i].id === msg.id) return
@@ -45,7 +47,7 @@ const createMessage = (msg) => {
   if (msg.timeDisplay > 0) {
     setTimeout (function () {
       removeMessage(msg)
-    }, msg.timeDelay * 1000)
+    }, msg.timeDisplay * 1000)
   }
 }
 /**

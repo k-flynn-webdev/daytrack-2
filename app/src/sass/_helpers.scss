@@ -68,6 +68,11 @@
   }
 }
 
+.is-clickable {
+  @extend .is-clickable;
+  pointer-events: all;
+}
+
 .is-smaller {
   @extend .is-small;
   transform: scale(0.85);

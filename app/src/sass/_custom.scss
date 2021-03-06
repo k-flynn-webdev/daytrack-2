@@ -8,6 +8,31 @@ html {
   color: $color-text;
   min-height: 40rem;
 
+  .close {
+    fill: $color-bg;
+  }
+
+  &.messages {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    text-align: center;
+    pointer-events: none;
+
+    .message {
+      display: inline-block;
+      color: $color-tag-text;
+      background-color: $color-tag;
+      border-radius: 1rem;
+      padding: $unit * 2 $unit * 4;
+      text-align: center;
+      min-width: 10rem;
+      position: relative;
+    }
+  }
+
   label { color: $color-text; }
   input {
     &::placeholder { color: rgba($color-text, 0.33); }
