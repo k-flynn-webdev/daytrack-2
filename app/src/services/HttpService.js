@@ -1,5 +1,5 @@
 import router from '../router'
-// import store from '../store'
+import store from '../store'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -37,6 +37,10 @@ function authSet (auth) {
 }
 
 function authRemove () {
+  return store.dispatch('user/logout')
+    .then(() => {
+      this.$router.push({ name: 'home' })
+    })
   // axios.defaults.headers.common.authorization = null
   // localStorage.removeItem(USER_TOKEN)
   // store.commit('user/logout')

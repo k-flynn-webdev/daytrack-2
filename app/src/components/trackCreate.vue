@@ -63,10 +63,14 @@ import { CSRF, TRACK } from '@/constants'
 import HttpService from "@/services/HttpService";
 import tagItem from "@/components/tagItem";
 import tagsRecent from "@/components/tagsRecent";
-
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'track-create',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   components: {
     tagItem,
@@ -188,9 +192,7 @@ export default {
         this.onReset()
         this.getToken()
       })
-      .catch(err => {
-        // todo: display detail/message
-      })
+      .catch(err => this.handleError(err))
       .finally(() => this.loading = false)
     }
   }

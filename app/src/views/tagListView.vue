@@ -19,9 +19,14 @@
 <script>
 import { TAG, USER } from '@/constants'
 import HttpService from "@/services/HttpService";
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'tag-list-view',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   data () {
     return {
@@ -41,9 +46,10 @@ export default {
      */
     getTagList () {
       return HttpService.get(`${TAG.API.GET}/`)
-      .then(({ data }) => {
-        this.tagList = data.results
-      })
+        .then(({ data }) => {
+          this.tagList = data.results
+        })
+        .catch(err => this.handleError(err))
     },
   }
 }

@@ -19,9 +19,14 @@
 import HttpService from "@/services/HttpService";
 import tagItem from "@/components/tagItem";
 import { TAG } from '@/constants'
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'tags-recent',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   components: {
     tagItem
@@ -43,9 +48,7 @@ export default {
       .then(({ data }) => {
         this.recentTags = data.results
       })
-      .catch(err => {
-
-      })
+      .catch(err => this.handleError(err))
     },
     onClick(item) {
       this.$emit('tagAdd', item)

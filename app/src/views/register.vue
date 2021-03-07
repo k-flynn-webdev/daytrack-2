@@ -47,9 +47,14 @@
 <script>
 import { CSRF, REGISTER } from '@/constants'
 import HttpService from '@/services/HttpService'
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'register',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   data () {
     return {
@@ -91,15 +96,13 @@ export default {
         email: this.form.email,
         password: this.form.password
       })
-      .then(data => {
+      .then(() => {
         this.resetForm()
         this.$nextTick(() => {
           this.$router.push({ name: 'home' })
         })
       })
-      .catch(err => {
-        // todo: display detail/message
-      })
+      .catch(err => this.handleError(err))
       .finally(() => this.loading = false)
     }
   }

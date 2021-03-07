@@ -29,7 +29,18 @@ html {
       padding: $unit * 2 $unit * 4;
       text-align: center;
       min-width: 10rem;
-      position: relative;
+      max-width: 95vmin;
+
+      &__row {
+        display: flex;
+        flex-direction: row;
+
+        &-content {}
+        &-button {
+          margin-left: $unit;
+          max-width: 1.5rem;
+        }
+      }
     }
   }
 

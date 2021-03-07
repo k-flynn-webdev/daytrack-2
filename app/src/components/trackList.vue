@@ -21,9 +21,14 @@
 <script>
 import { TRACK } from '@/constants'
 import trackItem from "@/components/trackItem";
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'track-list',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   components: {
     trackItem
@@ -53,7 +58,8 @@ export default {
       this.loading = true
 
       return this.$store.dispatch('track/get')
-      .finally(() => this.loading = false)
+          .catch(err => this.handleError(err))
+          .finally(() => this.loading = false)
     },
   }
 }

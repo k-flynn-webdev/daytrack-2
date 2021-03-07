@@ -18,9 +18,14 @@
 <script>
 import { TAG, USER } from '@/constants'
 import HttpService from "@/services/HttpService";
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'tag-view',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   data () {
     return {
@@ -51,15 +56,15 @@ export default {
     /**
      * Return Tag details
      *
-     * @returns {Promise<void>}
+     * @returns {void|Promise}
      */
     getTagDetail () {
       if (!this.tag) return
-      console.log(`${TAG.API.GET}/${this.tag}`)
       return HttpService.get(`${TAG.API.GET}/${this.tag}`)
-      .then(({ data }) => {
-        this.detail = data.results
-      })
+          .then(({ data }) => {
+            this.detail = data.results
+          })
+          .catch(err => this.handleError(err))
     },
   }
 }

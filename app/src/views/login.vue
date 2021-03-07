@@ -48,9 +48,14 @@
 <script>
 import { CSRF, LOGIN, TRACK } from '@/constants'
 import HttpService from '@/services/HttpService'
+import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {
   name: 'login',
+
+  mixins: [
+    genericErrMixin
+  ],
 
   data () {
     return {
@@ -96,9 +101,7 @@ export default {
         this.resetForm()
         this.$router.push({ name: TRACK.route.name })
       })
-      .catch(err => {
-        // todo: display detail/message
-      })
+      .catch(err => this.handleError(err))
       .finally(() => this.loading = false)
     }
   }
