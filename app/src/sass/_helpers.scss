@@ -58,6 +58,13 @@
 //  }
 //}
 
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 // colours
 @each $color, $value in $colors {
   .has-border-#{$color} {
@@ -78,8 +85,9 @@
   transform: scale(0.85);
 }
 
-svg,
-.icon {
+
+.icon,
+.icon svg {
   width: 1.75rem;
   height: 1.75rem;
 
