@@ -64,6 +64,7 @@ import HttpService from "@/services/HttpService";
 import tagItem from "@/components/tagItem";
 import tagsRecent from "@/components/tagsRecent";
 import { genericErrMixin } from '@/plugins/genericErrPlugin'
+const ONE_HOUR = 60 * 60 * 1000; /* ms */
 
 export default {
   name: 'track-create',
@@ -81,6 +82,7 @@ export default {
     return {
       tagInput: '',
       loading: false,
+      tokenTime: false,
       form: {
         track: '',
         tags: []
@@ -95,14 +97,18 @@ export default {
   },
 
   created () {
-    return this.getToken()
-        .then(() => this.onReset())
+    this.onReset()
   },
 
   methods: {
-    /** Ensure API returns a legal `CSRF` cookie to improve security */
+    /** Ensure have a legal `CSRF` cookie to improve security */
     getToken () {
+      if (((new Date() - this.tokenTime) < ONE_HOUR)) {
+        return Promise.resolve()
+      }
+
       return HttpService.get(CSRF.API.GET)
+      .then(() => this.tokenTime = new Date())
     },
     /**
      * Check if a tag by value currently
@@ -167,8 +173,7 @@ export default {
     /** Reset Form details */
     onReset () {
       this.tagInput = ''
-      this.form.track = ''
-      this.form.tags = []
+      this.form = this.$options.data.call(this).form
     },
     /**
      * Submit Login details to API for authentication
@@ -181,17 +186,17 @@ export default {
 
       this.loading = true
 
-      return this.$store.dispatch('track/post', {
-        track: this.form.track,
-        tags: this.form.tags.map(item => {
-          if (item.id) { return item }
-          return item.value
+      return this.getToken()
+      .then(() => {
+        return this.$store.dispatch('track/post', {
+          track: this.form.track,
+          tags: this.form.tags.map(item => {
+            if (item.id) { return item }
+            return item.value
+          })
         })
       })
-      .then(() => {
-        this.onReset()
-        this.getToken()
-      })
+      .then(() => this.onReset())
       .catch(err => this.handleError(err))
       .finally(() => this.loading = false)
     }

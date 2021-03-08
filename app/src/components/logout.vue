@@ -66,7 +66,8 @@ export default {
 
       this.loading = true
 
-      return this.$store.dispatch('user/logout')
+      return this.getToken()
+      .then(() => this.$store.dispatch('user/logout'))
       .then(() => {
           this.$router.push({ name: 'home' })
       })
