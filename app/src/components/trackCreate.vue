@@ -10,8 +10,9 @@
                  v-model="form.track"
                  class="input"
                  type="text"
+                 required
                  placeholder="..What happened?"
-                 required>
+                 @input="getToken">
         </div>
       </div>
 
@@ -23,6 +24,7 @@
                     :tag="tag"
                     :allow-url="false"
                     :allow-info="false"
+                    show-close
                     @click="onTagRemove(tag)" />
 
           <input
@@ -31,6 +33,7 @@
               class="track-create__tag__row-text input"
               v-model="tagInput"
               @blur="onTagAdd"
+              @input="getToken"
               @keydown.32="onTagAdd"
               @keydown.188="onTagAdd"
               @keydown.enter="onTagAdd"
@@ -105,6 +108,7 @@ export default {
   methods: {
     /** Ensure have a legal `CSRF` cookie to improve security */
     getToken () {
+      // tbd if this is any good todo:
       if (((new Date() - this.tokenTime) < ONE_HOUR)) {
         return Promise.resolve()
       }

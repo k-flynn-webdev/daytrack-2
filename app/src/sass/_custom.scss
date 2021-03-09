@@ -275,8 +275,8 @@ html {
     font-weight: 900;
     padding-top: 0.2rem;
     margin-right: $unit;
-    display: inline-block;
-    vertical-align: middle;
+    //display: inline-block;
+    //vertical-align: middle;
     position: relative;
 
     &:first-of-type { margin-left: 0; }
@@ -325,7 +325,19 @@ html {
       &::before {
         content: "#";
         opacity: 0.66;
-        margin-right: $unit * 0.5;
+        margin-right: $unit * 0.33;
+      }
+    }
+
+    &.show-close {
+      padding-right: $unit * 4;
+      fill: $color-bg;
+
+      .icon {
+        opacity: 0.66;
+        @extend .is-smaller;
+        position: absolute;
+        right: $unit;
       }
     }
   }

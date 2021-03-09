@@ -62,13 +62,13 @@ function httpSuccess (res) {
 }
 
 function httpError (err) {
-  if (err.response.status === 401 &&
-    err.response.statusText === 'Unauthorized') {
-    authRemove()
+  // if (err.response.status === 401 &&
+  //   err.response.statusText === 'Unauthorized') {
+    // authRemove()
 
-    setTimeout(function() {
-      router.push({ name: 'login' })
-    }, 0.5 * 1000)
+    // setTimeout(function() {
+    //   router.push({ name: 'login' })
+    // }, 0.5 * 1000)
 
   //   const isAnon = store.getters['user/isAnon']
   //   const signOut = isAnon
@@ -80,7 +80,7 @@ function httpError (err) {
   //       if (!isAnon) router.push({ name: Paths.USER_LOGIN })
   //       throw error
   //     })
-  }
+  // }
 
   throw err
   // store.commit('setStatus', status.ERROR)
