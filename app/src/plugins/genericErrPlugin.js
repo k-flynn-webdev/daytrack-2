@@ -3,8 +3,10 @@ import { get } from 'lodash-es'
 export const genericErrMixin = {
     methods: {
         handleError (err) {
+            const message = get(err, 'response.data', err.message)
+
             this.$message.add({
-                message: get(err, 'response.data', err.message),
+                message: message.detail ? message.detail : message,
                 class: 'is-error',
             })
             throw err
@@ -16,12 +18,12 @@ export const genericErrMixin = {
 export const genericErrPlugin = {
     install(Vue, options) {
         Vue.$handleErr = (err) => {
-            // if (!get(this, '$message')) return
-            Vue.$message.add({
-                message: get(err, 'response.data', err.message),
+            const message = get(err, 'response.data', err.message)
+
+            this.$message.add({
+                message: message.detail ? message.detail : message,
                 class: 'is-error',
             })
-
             throw err
         }
     }

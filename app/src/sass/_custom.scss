@@ -31,6 +31,11 @@ html {
       min-width: 10rem;
       max-width: 95vmin;
 
+      &.is-error {
+        color: $color-bg;
+        background-color: $warning;
+      }
+
       &__row {
         display: flex;
         flex-direction: row;
