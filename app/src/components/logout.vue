@@ -37,11 +37,6 @@ export default {
     }
   },
 
-  created () {
-    // todo check if logged in?
-    return this.getToken()
-  },
-
   computed: {
     userName () {
       return this.$store.state[USER.store].user.name
@@ -52,25 +47,19 @@ export default {
   },
 
   methods: {
-    /** Ensure API returns a legal `CSRF` cookie to improve security */
-    getToken () {
-      return HttpService.get(CSRF.API.GET)
-    },
     /**
-     * Submit Login details to API for authentication
+     * Submit Logout details to API for de-authentication
      *
      * @returns {void|Promise<boolean>}
      */
-    submit () {
+    onSubmit () {
       if (this.loading) return
 
       this.loading = true
 
-      return this.getToken()
+      return this.$store.dispatch('api/getCSRF')
       .then(() => this.$store.dispatch('user/logout'))
-      .then(() => {
-          this.$router.push({ name: 'home' })
-      })
+      .then(() => this.$router.push({ name: 'home' }))
       .catch(err => this.handleError(err))
       .finally(() => this.loading = false)
     }

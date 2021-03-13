@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import api from './api.js'
 import user from './user.js'
 import track from './track.js'
 // import plans from './plans.js'
@@ -112,6 +113,7 @@ export default new Vuex.Store({
   getters: getters,
   mutations: mutations,
   modules: {
+    api,
     user,
     track,
     // plans,

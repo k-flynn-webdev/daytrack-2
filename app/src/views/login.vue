@@ -12,7 +12,9 @@
                  class="input"
                  type="email"
                  placeholder="e.g. bobsmith@gmail.com"
-                 required>
+                 required
+                 @input="$store.dispatch('api/getCSRF')"
+          >
         </div>
       </div>
       <div class="field">
@@ -26,7 +28,9 @@
                  type="password"
                  placeholder="*******"
                  class="input"
-                 required>
+                 required
+                 @input="$store.dispatch('api/getCSRF')"
+          >
         </div>
       </div>
 
@@ -67,16 +71,7 @@ export default {
     }
   },
 
-  created () {
-    return this.getToken()
-        .then(() => this.resetForm())
-  },
-
   methods: {
-    /** Ensure API returns a legal `CSRF` cookie to improve security */
-    getToken () {
-      return HttpService.get(CSRF.API.GET)
-    },
     /** Reset Register details */
     resetForm () {
       this.form.email = 'flynny85@gmail.com'
@@ -93,9 +88,11 @@ export default {
 
       this.loading = true
 
-      return this.$store.dispatch('user/login', {
-        email: this.form.email,
-        password: this.form.password
+      return this.$store.dispatch('api/getCSRF')
+      .then(() => {
+        return this.$store.dispatch('user/login', {
+          email: this.form.email,
+          password: this.form.password })
       })
       .then(() => {
         this.resetForm()

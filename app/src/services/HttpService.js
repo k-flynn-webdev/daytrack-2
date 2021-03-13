@@ -26,9 +26,9 @@ axios.defaults.paramsSerializer = function(params) {
   // authSet(token)
 })()
 
-function getToken () {
-  // return localStorage.getItem(USER_TOKEN)
-}
+// function getToken () {
+//   return localStorage.getItem(USER_TOKEN)
+// }
 
 function authSet (auth) {
   // axios.defaults.headers.common.authorization = `Bearer ${auth}`
@@ -38,9 +38,7 @@ function authSet (auth) {
 
 function authRemove () {
   return store.dispatch('user/logout')
-    .then(() => {
-      this.$router.push({ name: 'home' })
-    })
+    .then(() => router.push({ name: 'home' }))
   // axios.defaults.headers.common.authorization = null
   // localStorage.removeItem(USER_TOKEN)
   // store.commit('user/logout')
@@ -116,6 +114,5 @@ const services = {
   remove,
   authSet,
   authRemove,
-  getToken
 }
 export default services

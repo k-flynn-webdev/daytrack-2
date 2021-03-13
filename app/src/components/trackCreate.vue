@@ -12,7 +12,8 @@
                  type="text"
                  required
                  placeholder="..What happened?"
-                 @input="getToken">
+                 @input="$store.dispatch('api/getCSRF')"
+          />
         </div>
       </div>
 
@@ -20,12 +21,13 @@
         <div class="track-create__tag__row">
 
           <tag-item v-for="tag in form.tags"
+                    show-close
                     :key="tag.value"
                     :tag="tag"
                     :allow-url="false"
                     :allow-info="false"
-                    show-close
-                    @click="onTagRemove(tag)" />
+                    @click="onTagRemove(tag)"
+          />
 
           <input
               type="text"
@@ -33,7 +35,7 @@
               class="track-create__tag__row-text input"
               v-model="tagInput"
               @blur="onTagAdd"
-              @input="getToken"
+              @input="$store.dispatch('api/getCSRF')"
               @keydown.32="onTagAdd"
               @keydown.188="onTagAdd"
               @keydown.enter="onTagAdd"
@@ -106,24 +108,14 @@ export default {
   },
 
   methods: {
-    /** Ensure have a legal `CSRF` cookie to improve security */
-    getToken () {
-      // tbd if this is any good todo:
-      if (((new Date() - this.tokenTime) < ONE_HOUR)) {
-        return Promise.resolve()
-      }
-
-      return HttpService.get(CSRF.API.GET)
-      .then(() => this.tokenTime = new Date())
-    },
     /**
-     * Check if a tag by value currently
-     * exists in the form.tags
+     * Check if a tag already exists inside form.tags[x]
+     * by value
      *
      * @param   {string}    value   string value to check for
      * @returns {boolean}           returns if the value already exists
      */
-    checkTagExists (value) {
+    isDuplicateTag (value) {
       for (let i = 0; i < this.form.tags.length; i++) {
         if (this.form.tags[i].value === value) return true
       }
@@ -137,7 +129,7 @@ export default {
      */
     onTagAdd (input) {
       if (input.id && input.value) {
-        if (this.checkTagExists(input.value)) return
+        if (this.isDuplicateTag(input.value)) return
         this.form.tags.push(input)
         return
       }
@@ -146,7 +138,7 @@ export default {
       let val = input.target.value.trim()
       if (val.length > 0) {
         // no duplicates allowed
-        if (this.checkTagExists(val)) return
+        if (this.isDuplicateTag(val)) return
 
         this.form.tags.push({ value: val })
         this.tagInput = ''
@@ -192,7 +184,7 @@ export default {
 
       this.loading = true
 
-      return this.getToken()
+      return this.$store.dispatch('api/getCSRF')
       .then(() => {
         return this.$store.dispatch('track/post', {
           track: this.form.track,
