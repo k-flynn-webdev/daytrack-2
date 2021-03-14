@@ -13,7 +13,7 @@
           <div v-if="item.closeable"
                class="message__row-button"
                @click="$message.remove(item)">
-            <cross-icon />
+            <cross-icon :class-items="'close'" />
           </div>
         </div>
       </div>
