@@ -50,8 +50,7 @@
 </template>
 
 <script>
-import { CSRF, LOGIN, TRACK } from '@/constants'
-import HttpService from '@/services/HttpService'
+import { LOGIN, TRACK } from '@/constants'
 import { genericErrMixin } from '@/plugins/genericErrPlugin'
 
 export default {

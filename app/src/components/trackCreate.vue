@@ -48,12 +48,7 @@
                 :class="{ 'is-loading': loading }"
                 :disabled="loading || !isValid"
                 type="submit">
-          <div class="icon">
-            <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
-                 style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-              <path d="M428.725,256l-345.45,-234.449l0,468.898l345.45,-234.449Z" />
-            </svg>
-          </div>
+          <right-icon />
         </button>
 
       </div>
@@ -66,12 +61,11 @@
 </template>
 
 <script>
-import { CSRF, TRACK } from '@/constants'
-import HttpService from "@/services/HttpService";
+import { TRACK } from '@/constants'
+import rightIcon from '@/assets/right'
 import tagItem from "@/components/tagItem";
 import tagsRecent from "@/components/tagsRecent";
 import { genericErrMixin } from '@/plugins/genericErrPlugin'
-const ONE_HOUR = 60 * 60 * 1000; /* ms */
 
 export default {
   name: 'track-create',
@@ -81,6 +75,7 @@ export default {
   ],
 
   components: {
+    rightIcon,
     tagItem,
     tagsRecent
   },
@@ -89,7 +84,6 @@ export default {
     return {
       tagInput: '',
       loading: false,
-      tokenTime: false,
       form: {
         track: '',
         tags: []
