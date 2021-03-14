@@ -31,19 +31,29 @@ html {
       min-width: 10rem;
       max-width: 95vmin;
 
+      @include mobile () {
+        min-width: 95vmin;
+      }
+
       &.is-error {
         color: $color-bg;
         background-color: $warning;
       }
 
       &__row {
-        display: flex;
-        flex-direction: row;
+        @extend .is-row;
+        @extend .is-row.center;
+        position: relative;
 
         &-content {}
         &-button {
-          margin-left: $unit;
+          @extend .is-clickable;
+          position: absolute;
+          right: $unit * -2.75;
+
+          height: 1.5rem;
           max-width: 1.5rem;
+          margin-left: $unit;
         }
       }
     }
