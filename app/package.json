@@ -1,6 +1,6 @@
 {
   "name": "minitrack",
-  "version": "0.2.75",
+  "version": "0.2.9",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
