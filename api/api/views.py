@@ -13,4 +13,5 @@ from django.views.generic import View
 def get_csrf(request):
     response = HttpResponse(status=204)
     response['HTTP_X_CSRFTOKEN'] = get_token(request)
+    print(response['HTTP_X_CSRFTOKEN'])
     return response

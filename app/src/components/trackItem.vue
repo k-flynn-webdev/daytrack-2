@@ -7,12 +7,12 @@
         {{ track.value }}
 
         <div class="track__body__info is-size-7">
-          <div class="track__body__info-date">
+          <p class="track__body__info-date">
             {{ track | itemDateAbr }}
-          </div>
-          <div class="track__body__info-time">
+          </p>
+          <p class="track__body__info-time">
             {{ track | itemTimeAbr }}
-          </div>
+          </p>
         </div>
 
       </div>
