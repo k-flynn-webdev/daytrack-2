@@ -204,29 +204,39 @@ html {
     position: relative;
     margin-bottom: $unit * 3.75;
 
+    $time-width: 3.5rem;
+
     &__body {
       margin: 0;
+      min-height: 2.15rem;
       font-weight: 400;
       position: relative;
       z-index: -1;
       padding: $unit $unit * 2;
-      padding-right: 2.75rem;
+      padding-right: $time-width + ($unit * 2);
       padding-bottom: $unit * 0.25;
       color: $color-track-text;
       background-color: $color-track;
 
       &.has-tags {
-        padding-bottom: $unit * 4;
+        padding-bottom: $unit * 6;
         margin-bottom: $unit * 4.25;
       }
 
-      &-time {
+      &__info {
         font-weight: bolder;
-        position: absolute;
-        top: $unit * 0.5;
-        right: $unit * 2;
-        z-index: 10;
+        text-align: right;
+        padding: $unit;
         opacity: 0.66;
+        min-width: $time-width;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        line-height: 1.1;
+
+        &-date {}
+        &-time {}
       }
     }
 

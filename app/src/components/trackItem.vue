@@ -6,8 +6,13 @@
            :class="{ 'has-tags': track.tags.length > 0 }">
         {{ track.value }}
 
-        <div class="track__body-time is-size-7">
-          {{ track | tagDate }}
+        <div class="track__body__info is-size-7">
+          <div class="track__body__info-date">
+            {{ track | itemDateAbr }}
+          </div>
+          <div class="track__body__info-time">
+            {{ track | itemTimeAbr }}
+          </div>
         </div>
 
       </div>

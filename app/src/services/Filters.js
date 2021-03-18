@@ -89,8 +89,8 @@ const ITEM_DONE = {
   }
 }
 
-const TAG_DATE = {
-  name: 'tagDate',
+const ITEM_DATE_ABR = {
+  name: 'itemDateAbr',
   filter: function (item) {
     if (!item) return ''
     if (!item.created_at) return ''
@@ -101,9 +101,20 @@ const TAG_DATE = {
   }
 }
 
+const ITEM_TIME_ABR = {
+  name: 'itemTimeAbr',
+  filter: function (item) {
+    if (!item) return ''
+    if (!item.created_at) return ''
+
+    return new Date(item.created_at).getHours() < 12 ? 'am' : 'pm'
+  }
+}
+
 const ALL_FILTERS = [
-  TAG_DATE,
-  ITEM_DATE
+  ITEM_DATE,
+  ITEM_DATE_ABR,
+  ITEM_TIME_ABR
 ]
 
 export default (Vue) => {
