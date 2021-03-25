@@ -1,4 +1,6 @@
 .idea
+*node_modules/
+*dist/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -12,7 +14,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -129,4 +130,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-/app/node_modules/
