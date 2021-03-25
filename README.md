@@ -1,2 +1,2 @@
-# daytrack-2
-Daytrack app but with django flavour
+# minitrack
+Minitrack track your thoughts and feelings
