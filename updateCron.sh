@@ -23,4 +23,9 @@ TIME_DIFF="$(($TIME_CURRENT - $TIME_LAST_COMMIT))"
 if [ $GIT_REMOTE != $GIT_LOCAL ] && [ "$TIME_DIFF" -gt "$DELAY" ]; then
   echo "[ $GIT_URL :: $GIT_BRANCH ] Updated"
   git pull --no-edit
+
+  if [ -f "./updateTrigger.sh" ]; then
+     sh ./updateTrigger.sh
+  fi
+
 fi

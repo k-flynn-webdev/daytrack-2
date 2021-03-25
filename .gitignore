@@ -1,6 +1,7 @@
 .idea
 *node_modules/
 *dist/
+*static/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
