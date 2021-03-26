@@ -6,6 +6,9 @@
 ###           TIME DELAY CHECK
 ###           GIT PULL BASH SCRIPT
 ### USE TO KEEP A BRANCH UPTO DATE WITH ITS REMOTE COUNTERPART
+script_location=$(dirname $0)
+cd $script_location
+pwd
 
 DELAY=3600
 GIT_BRANCH="main"
