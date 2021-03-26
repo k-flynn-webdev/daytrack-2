@@ -5,7 +5,7 @@
 
 ## VARS
 NODE_ENV=production
-source .env
+. .env
 
 ## PATHS
 dir_project=$PWD;
