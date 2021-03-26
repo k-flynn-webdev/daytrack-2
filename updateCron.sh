@@ -25,7 +25,7 @@ if [ $GIT_REMOTE != $GIT_LOCAL ] && [ "$TIME_DIFF" -gt "$DELAY" ]; then
   git pull --no-edit
 
   if [ -f "./updateTrigger.sh" ]; then
-     sh ./updateTrigger.sh
+     ./updateTrigger.sh
   fi
 
 fi
