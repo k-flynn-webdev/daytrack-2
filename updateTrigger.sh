@@ -3,14 +3,14 @@
 ## onUpdate ##
 ## Build All Files ##
 
-## VARS
-NODE_ENV=production
-. .env
-
 ## PATHS
 dir_project=$PWD;
 dir_project_api=$dir_project/api;
 dir_project_app=$dir_project/app;
+
+## VARS
+NODE_ENV=production
+source .env
 
 ## APP
 cd $dir_project_app
