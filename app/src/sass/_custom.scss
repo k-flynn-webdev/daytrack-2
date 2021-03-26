@@ -236,7 +236,9 @@ html {
         line-height: 1.1;
 
         &-date {}
-        &-time {}
+        &-time {
+          text-transform: uppercase;
+        }
       }
     }
 
