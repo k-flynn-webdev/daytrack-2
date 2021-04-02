@@ -27,8 +27,8 @@ if [ $GIT_REMOTE != $GIT_LOCAL ] && [ "$TIME_DIFF" -gt "$DELAY" ]; then
   echo "[ $GIT_URL :: $GIT_BRANCH ] Updated"
   git pull --no-edit
 
-  if [ -f "./updateTrigger.sh" ]; then
-     ./updateTrigger.sh
-  fi
+#  if [ -f "./updateTrigger.sh" ]; then
+#     ./updateTrigger.sh
+#  fi
 
 fi

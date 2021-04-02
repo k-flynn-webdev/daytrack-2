@@ -28,3 +28,4 @@ python3 manage.py collectstatic --noinput
 
 # ASSETS:: Copy index.html
 cp $dir_project_app/dist/index.html $dir_project_static/index.html
+echo "BUILD::::       $WEB_NAME       PROJECT FILES REBUILT"
