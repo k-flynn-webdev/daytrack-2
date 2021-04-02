@@ -11,4 +11,4 @@ source $dir_project/.env
 pm2 start ../builder/npm --name "$WEB_NAME-builder" -- start
 
 # Add App to PM2 processes
-pm2 start ./run_api_production --name "$WEB_NAME-app"
+pm2 start ./run_api_production.sh --name "$WEB_NAME-app"
