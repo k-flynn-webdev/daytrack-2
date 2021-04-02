@@ -44,6 +44,7 @@ export default {
     pageFooter
   },
 
+  
   mounted () {
     return this.$store.dispatch('api/getCSRF')
   },
