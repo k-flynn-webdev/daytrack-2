@@ -43,8 +43,7 @@ export default {
     logout,
     pageFooter
   },
-
-
+  
   mounted () {
     return this.$store.dispatch('api/getCSRF')
   },
