@@ -6,13 +6,12 @@ echo $script_location
 cd $script_location
 pwd
 
-source .env
+source ../.env
 source `which virtualenvwrapper.sh`
 
-cd $script_location/api
+cd $script_location/../api
 pwd
 
 workon $APP_ENVIROMENT
 uwsgi --socket $API_IP:$API_PORT --protocol=http -w main.wsgi:application
-#python3 "api/manage.py" runserver "$API_IP:$API_PORT"
 
