@@ -43,7 +43,7 @@ export default {
     logout,
     pageFooter
   },
-  
+
   mounted () {
     return this.$store.dispatch('api/getCSRF')
   },
@@ -52,7 +52,6 @@ export default {
     onTitle (input) {
       this.title = input
     }
-  },
-
+  }
 }
 </script>
