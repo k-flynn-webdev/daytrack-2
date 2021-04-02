@@ -2,7 +2,7 @@
 
 ## PATHS
 dir_project_production=$(dirname $0);
-dir_project=dir_project_production/..;
+dir_project=$dir_project_production/..;
 
 ## VARS
 source $dir_project/.env
