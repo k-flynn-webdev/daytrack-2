@@ -1,0 +1,17 @@
+{
+  "name": "minitrack-build",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "watch": "nodemon -q -w ../app/src --ext '.' --exec './build.sh'"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

@@ -7,8 +7,9 @@
     <section class="container">
 
       <div class="level is-mobile mb-3">
-        <router-link :to="{ name: 'home' }"
-                     class="title has-text-white level-item">
+        <router-link
+            :to="{ name: 'home' }"
+            class="title has-text-white level-item">
           {{ $route.meta.title }}
         </router-link>
         <logout class="level-right" />
