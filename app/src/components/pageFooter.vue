@@ -19,8 +19,8 @@
         href="https://github.com/k-flynn-webdev">
         k-flynn-webdev
       </a>
-      <small class="is-hidden-mobile pl-2">
-        alpha {{ version }}
+      <small class="pl-2">
+        v: {{ version }}
       </small>
     </div>
 

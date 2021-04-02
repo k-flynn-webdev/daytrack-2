@@ -73,8 +73,8 @@ export default {
   methods: {
     /** Reset Register details */
     resetForm () {
-      this.form.email = 'flynny85@gmail.com'
-      this.form.password = 'password'
+      this.form.email = ''
+      this.form.password = ''
     },
     /**
      * Submit Login details to API for authentication
