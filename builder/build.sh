@@ -6,9 +6,9 @@
 ## PATHS
 dir_project_build=$(dirname $0);
 dir_project=$dir_project_build/..;
-dir_project_api=$dir_project/../api;
-dir_project_app=$dir_project/../app;
-dir_project_static=$dir_project/../static;
+dir_project_api=$dir_project/api;
+dir_project_app=$dir_project/app;
+dir_project_static=$dir_project/static;
 
 ## VARS
 NODE_ENV=production
